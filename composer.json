@@ -14,6 +14,7 @@
         "algolia/algoliasearch-magento-2": "^3.0",
         "checkoutcom/magento2": "*",
         "hybridauth/hybridauth": "~3.0",
+        "mage2pro/core": "*",
         "magento/product-community-edition": "2.3.3",
         "tamara-solution/magento": "^2.7"
     },
