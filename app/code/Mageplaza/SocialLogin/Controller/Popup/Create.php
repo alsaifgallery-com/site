@@ -51,6 +51,11 @@ use Magento\Framework\UrlFactory;
 use Magento\Newsletter\Model\SubscriberFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Mageplaza\SocialLogin\Helper\Data;
+# 2021-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# «Mageplaza\SocialLogin\Controller\Popup\Create» /
+# «Missed required argument customerRepository in parent::__construct call»:
+# https://github.com/alsaifgallery-com/site/issues/4
+use Magento\Customer\Api\CustomerRepositoryInterface as CustomerRepository;
 
 /**
  * Class Create
@@ -103,6 +108,7 @@ class Create extends CreatePost
      * @param CustomerExtractor $customerExtractor
      * @param DataObjectHelper $dataObjectHelper
      * @param AccountRedirect $accountRedirect
+	 * @param CustomerRepository $customerRepository
      * @param JsonFactory $resultJsonFactory
      * @param CaptchaData $captchaHelper
      * @param Data $socialHelper
@@ -126,6 +132,11 @@ class Create extends CreatePost
         CustomerExtractor $customerExtractor,
         DataObjectHelper $dataObjectHelper,
         AccountRedirect $accountRedirect,
+		# 2021-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		# «Mageplaza\SocialLogin\Controller\Popup\Create» /
+		# «Missed required argument customerRepository in parent::__construct call»:
+		# https://github.com/alsaifgallery-com/site/issues/4
+        CustomerRepository $customerRepository,
         JsonFactory $resultJsonFactory,
         CaptchaData $captchaHelper,
         Data $socialHelper
@@ -153,6 +164,11 @@ class Create extends CreatePost
             $customerExtractor,
             $dataObjectHelper,
             $accountRedirect
+			# 2021-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			# «Mageplaza\SocialLogin\Controller\Popup\Create» /
+			# «Missed required argument customerRepository in parent::__construct call»:
+			# https://github.com/alsaifgallery-com/site/issues/4
+			,$customerRepository
         );
     }
 
