@@ -1,0 +1,33 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Shopbybrand
+ * @copyright   Copyright (c) 2017 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+<?php if ($brand = $block->getProductBrand()): ?>
+  <div class="product-brand">
+    <?php $img = $block->helper()->getBrandImageUrl($brand); ?>
+    <?php if ($img) { ?>
+      <div class="brand-image">
+        <a title="<?php echo $brand->getValue(); ?>" href="<?php echo $block->helper()->getBrandUrl($brand) ?>">
+          <img class="img-responsive" style="max-width: 200px; max-height: 100px" src="<?php echo $img; ?>" alt="<?php echo $brand->getValue(); ?>" class="image"/>
+        </a>
+      </div>
+    <?php } ?>
+  </div>
+<?php endif; ?>

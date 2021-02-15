@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <faqs>
+            <general>
+                <enabled>1</enabled>
+                <faq_color>#1abc9c</faq_color>
+                <is_show_helpful>1</is_show_helpful>
+                <rating_restrict>0</rating_restrict>
+                <question>
+                    <enabled>2</enabled>
+                    <max_char>255</max_char>
+                    <need_approved>1</need_approved>
+                    <name_field>1</name_field>
+                    <email_field>1</email_field>
+                    <show_notification>1</show_notification>
+                </question>
+                <question_detail_page>
+                    <enabled>1</enabled>
+                    <max_char>255</max_char>
+                    <layout>0</layout>
+                </question_detail_page>
+                <search_box>
+                    <enabled>1</enabled>
+                    <title>Knowledge Base</title>
+                    <description>Search our articles or browse by category below</description>
+                </search_box>
+            </general>
+            <faq_home_page>
+                <enabled>1</enabled>
+                <route>faq</route>
+                <title>Frequently Answer and Question</title>
+                <layout>0</layout>
+                <design_style>material</design_style>
+                <category_column>3</category_column>
+                <question_style>1</question_style>
+                <limit_question>5</limit_question>
+                <seo>
+                    <meta_robot>INDEX,FOLLOW</meta_robot>
+                </seo>
+            </faq_home_page>
+            <product_tab>
+                <enabled>1</enabled>
+                <title>FAQs</title>
+                <limit_question>5</limit_question>
+                <design_style>1</design_style>
+                <question_style>1</question_style>
+                <show_name>1</show_name>
+                <show_date>1</show_date>
+            </product_tab>
+            <term_condition>
+                <enabled>1</enabled>
+                <popup_label><![CDATA[Terms & Conditions]]></popup_label>
+                <title><![CDATA[Terms & Conditions]]></title>
+            </term_condition>
+            <email>
+                <enabled>1</enabled>
+                <customer>
+                    <enabled>1</enabled>
+                    <template>mpfaqs_customer_default</template>
+                </customer>
+                <admin>
+                    <enabled>1</enabled>
+                    <send_to>admin@example.com</send_to>
+                    <template>mpfaqs_admin_default</template>
+                </admin>
+            </email>
+        </faqs>
+    </default>
+</config>

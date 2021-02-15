@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <!-- <menu>
+        <add id="AlsaifGallery_Base::menu" title="AlsaifGallery" module="AlsaifGallery_Base" sortOrder="50" resource="AlsaifGallery_Base::config"/>
+        <add id="AlsaifGallery_Base::documentation" title="AlsaifGallery Modules Settings" action="adminhtml/system_config/edit/section/alsaifgallery" module="AlsaifGallery_Base" sortOrder="5" resource="AlsaifGallery_Base::config" parent="AlsaifGallery_Base::menu"/>
+    </menu> -->
+</config>

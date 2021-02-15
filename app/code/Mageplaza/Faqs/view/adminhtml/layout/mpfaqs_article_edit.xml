@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <head>
+        <css src="Mageplaza_Faqs::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Mageplaza\Faqs\Block\Adminhtml\Article\Edit" name="mageplaza_faqs_article_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Mageplaza\Faqs\Block\Adminhtml\Article\Edit\Tabs" name="mageplaza_faqs_article_tabs">
+                <container label="Main" name="main">
+                    <block class="Mageplaza\Faqs\Block\Adminhtml\Article\Edit\Tab\Statistic" name="mageplaza_faqs_article_edit_tab_statistic" as="advance"/>
+                    <block class="Mageplaza\Faqs\Block\Adminhtml\Article\Edit\Tab\Article" name="mageplaza_faqs_article_edit_tab_article" as="base"/>
+                </container>
+                <block class="Mageplaza\Faqs\Block\Adminhtml\Article\Edit\Tab\Product" name="mageplaza_faqs_article_edit_tab_product"/>
+                <action method="addTabAfter">
+                    <argument name="name" xsi:type="string">product</argument>
+                    <argument name="block" xsi:type="string">mageplaza_faqs_article_edit_tab_product</argument>
+                    <argument name="after" xsi:type="string">main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Email/etc/email_templates.xsd">
+<template id="send_email_email_template_forgot_password_verify" 
+          label="ForgotPassword Verifitcation Email" 
+          file="email_template.html" 
+          type="text" 
+          module="AlsaifGallery_ForgotPassword"
+          area="frontend"/>
+</config>

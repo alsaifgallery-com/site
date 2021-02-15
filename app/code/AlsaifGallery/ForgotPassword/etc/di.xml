@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="AlsaifGallery\ForgotPassword\Api\VerifyCustomerManagementInterface" type="AlsaifGallery\ForgotPassword\Model\VerifyCustomerManagement"/>
+	<preference for="AlsaifGallery\ForgotPassword\Api\VerifyCodeManagementInterface" type="AlsaifGallery\ForgotPassword\Model\VerifyCodeManagement"/>
+	<preference for="AlsaifGallery\ForgotPassword\Api\ResetPasswordManagementInterface" type="AlsaifGallery\ForgotPassword\Model\ResetPasswordManagement"/>
+	<preference for="AlsaifGallery\ForgotPassword\Api\ForgotPasswordRepositoryInterface" type="AlsaifGallery\ForgotPassword\Model\ForgotPasswordRepository"/>
+	<preference for="AlsaifGallery\ForgotPassword\Api\Data\ForgotPasswordInterface" type="AlsaifGallery\ForgotPassword\Model\Data\ForgotPassword"/>
+	<preference for="AlsaifGallery\ForgotPassword\Api\Data\ForgotPasswordSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<preference for="AlsaifGallery\ForgotPassword\Api\Data\RequestVerifyCustomerInterface" type="AlsaifGallery\ForgotPassword\Model\Data\RequestVerifyCustomer"/>
+</config>

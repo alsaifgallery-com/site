@@ -1,0 +1,39 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\Faqs\Block\Article\View $block */
+$_article = $block->getArticle();
+?>
+<div id="rating-label">
+    <span><?php echo __("Did you find it helpful?"); ?> </span>
+    <div id="rating-actions" class="row">
+        <div class="rating-positive col m6 s12">
+            <a data-type="positive" class="waves-effect waves-light btn in-active"><?php echo __("yes"); ?>
+                (<span class="like-count"></span>)
+            </a>
+        </div>
+        <div class="rating-negative col m6 s12">
+            <a data-type="negative" class="waves-effect waves-light btn in-active"><?php echo __("no"); ?>
+                (<span class="dislike-count"></span>)
+            </a>
+        </div>
+    </div>
+</div>

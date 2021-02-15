@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table comment="alsaifgallery_forgotpassword_forgotpassword Table" engine="innodb" name="alsaifgallery_forgotpassword_forgotpassword" resource="default">
+		<column comment="Entity Id" identity="true" name="forgotpassword_id" nullable="false" padding="6" unsigned="false" xsi:type="smallint"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="forgotpassword_id"/>
+		</constraint>
+		<column name="customer_id" nullable="false"  unsigned="false" xsi:type="int"/>
+		<column name="request_number" nullable="false" unsigned="false"  xsi:type="int"/>
+		<column name="created_at" nullable="true" xsi:type="datetime"/>
+		<column length="255" name="verify_code" nullable="true" xsi:type="varchar"/>
+		<column name="verify_code_status" nullable="true" xsi:type="boolean"/>
+		<column length="255" name="request_token" nullable="true" xsi:type="varchar"/>
+		<column name="request_token_status" nullable="true" xsi:type="boolean"/>
+		<column length="255" name="type" nullable="true" xsi:type="varchar"/>
+		<column name="send_status" nullable="true" xsi:type="boolean"/>
+	</table>
+</schema>

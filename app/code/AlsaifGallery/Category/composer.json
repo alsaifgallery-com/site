@@ -1,0 +1,22 @@
+{
+    "name": "alsaifgallery/module-categoty",
+    "description": "AlsaifGallery Mange mobile, return category new data ",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "email": "a.helal@alsaifgallery.com",
+            "name": "Ahmed Helal"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "AlsaifGallery\\Category\\": ""
+        }
+    }
+}

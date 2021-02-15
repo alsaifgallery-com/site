@@ -1,0 +1,206 @@
+"Save and Continue Edit","Save and Continue Edit"
+"Edit '%1'","Edit '%1'"
+"New Article/Question","New Article/Question"
+General,General
+Question,Question
+"URL Key","URL Key"
+Answer,Answer
+Categories,Categories
+"Store Views","Store Views"
+Visibility,Visibility
+Position,Position
+"Customer Information","Customer Information"
+"Author Name","Author Name"
+"Author Email","Author Email"
+"Receive Email Notification","Receive Email Notification"
+"SEO Config","SEO Config"
+"Meta Title","Meta Title"
+"Meta Description","Meta Description"
+"Meta Keywords","Meta Keywords"
+"Meta Robots","Meta Robots"
+ID,ID
+Name,Name
+Sku,Sku
+Price,Price
+Product,Product
+"Question Information","Question Information"
+"New Category","New Category"
+"Question Name","Question Name"
+"Created At","Created At"
+"Updated At","Updated At"
+Status,Status
+Icon,Icon
+"Category Information","Category Information"
+Home,Home
+"Go to Home Page","Go to Home Page"
+"Frequently Answer and Question","Frequently Answer and Question"
+FAQs,FAQs
+Faqs,Faqs
+"This article no longer exists.","This article no longer exists."
+"Manage Articles","Manage Articles"
+"Edit ""%1""","Edit ""%1"""
+"FAQ Questions/Articles","FAQ Questions/Articles"
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the Article.","Something went wrong while saving the Article."
+"Articles have been deleted.","Articles have been deleted."
+"Something wrong when deleting Articles.","Something wrong when deleting Articles."
+"Something went wrong while updating status for %1.","Something went wrong while updating status for %1."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"The article has been saved.","The article has been saved."
+"This category no longer exists.","This category no longer exists."
+"Manage Categories","Manage Categories"
+"FAQ Categories","FAQ Categories"
+"Something went wrong while saving the Category.","Something went wrong while saving the Category."
+"Categories has been deleted.","Categories has been deleted."
+"Something wrong when deleting the selected Categories.","Something wrong when deleting the selected Categories."
+"The category has been saved.","The category has been saved."
+"Unable to generate url key. Please check the setting and try again.","Unable to generate url key. Please check the setting and try again."
+Pending,Pending
+Answered,Answered
+Required,Required
+Optional,Optional
+No,No
+"Only Logged in Customer","Only Logged in Customer"
+Yes,Yes
+"Yes (checkbox)","Yes (checkbox)"
+"Yes (hidden)","Yes (hidden)"
+1,1
+2,2
+3,3
+Material,Material
+"FAQ template send to admin (default)","FAQ template send to admin (default)"
+"FAQ template send to customer (default)","FAQ template send to customer (default)"
+"-- Please select --","-- Please select --"
+Toplink,Toplink
+Footerlink,Footerlink
+Category,Category
+Collapsible,Collapsible
+Default,Default
+Public,Public
+Hidden,Hidden
+"Need Approved","Need Approved"
+"All Store Views","All Store Views"
+Statistic,Statistic
+View,View
+Action,Action
+Positive,Positive
+Negative,Negative
+"Ask a question","Ask a question"
+Email,Email
+"What is your question?","What is your question?"
+"Receive email notification if the question is answered.","Receive email notification if the question is answered."
+"I agree with the","I agree with the"
+"Terms & Conditions","Terms & Conditions"
+"Submit the question","Submit the question"
+"There is no content for Term & Conditions.","There is no content for Term & Conditions."
+"I Agree with the Terms","I Agree with the Terms"
+"Did you find it helpful?","Did you find it helpful?"
+yes,yes
+no,no
+"Frequently Asked Questions and Answers","Frequently Asked Questions and Answers"
+"Read more","Read more"
+"There is no answer for this question.","There is no answer for this question."
+"View all","View all"
+"add a question","add a question"
+"Knowledge Base","Knowledge Base"
+"Search our articles or browse by category below","Search our articles or browse by category below"
+"How do we help?","How do we help?"
+Search,Search
+"There is no FAQ match with your search.","There is no FAQ match with your search."
+Collapse,Collapse
+views,views
+"There is no answer for this question .","There is no answer for this question ."
+"Asked on: %date","Asked on: %date"
+%question,%question
+%question_id,%question_id
+%customer_name,%customer_name
+%question_content,%question_content
+%date,%date
+"Enable Module","Enable Module"
+"Select <b>Yes</b> to enable FAQ page.","Select <b>Yes</b> to enable FAQ page."
+"Choose FAQ's color","Choose FAQ's color"
+"Allow Voting For Helpfulness","Allow Voting For Helpfulness"
+"Select <b>Yes</b> to allow selected group(s) below to vote for helpfulness.","Select <b>Yes</b> to allow selected group(s) below to vote for helpfulness."
+"Restrict Rating for","Restrict Rating for"
+"Select customer group(s) allowed to vote for helpfulness.","Select customer group(s) allowed to vote for helpfulness."
+"Add Question Config","Add Question Config"
+"Allow Guests To Ask Questions","Allow Guests To Ask Questions"
+"Question maximum character","Question maximum character"
+"The maximum number of characters of each question.","The maximum number of characters of each question."
+"Need Admin's Approved","Need Admin's Approved"
+"Select <b>Yes</b> to require approval from admins to publish a question.","Select <b>Yes</b> to require approval from admins to publish a question."
+"The Name Field is","The Name Field is"
+"The Email Field is","The Email Field is"
+"Show Email Notification checkbox","Show Email Notification checkbox"
+"Question Details Page Config","Question Details Page Config"
+"Enabled Question Details Page","Enabled Question Details Page"
+"Select <b>Yes</b>, a ""Read More"" link will be displayed to view full details on a question details page.","Select <b>Yes</b>, a ""Read More"" link will be displayed to view full details on a question details page."
+"Short answer maximum character","Short answer maximum character"
+"The maximum number of characters of a short answer.","The maximum number of characters of a short answer."
+"Detail Page Layout","Detail Page Layout"
+"Search Box Config","Search Box Config"
+"Enabled Search Box","Enabled Search Box"
+"Select <b>Yes</b>, to enable search box.","Select <b>Yes</b>, to enable search box."
+"Search Box Title","Search Box Title"
+"The search box's title.","The search box's title."
+"Search Box Description","Search Box Description"
+"The search box's description.","The search box's description."
+"FAQ Home Page Configuration","FAQ Home Page Configuration"
+Enable,Enable
+"Select <b>Yes</b> to enable FAQ Home page.","Select <b>Yes</b> to enable FAQ Home page."
+Route,Route
+"If <b>Empty</b> the FAQ Home page will be disabled.","If <b>Empty</b> the FAQ Home page will be disabled."
+"Insert FAQ link on","Insert FAQ link on"
+"Page Title","Page Title"
+"Page Layout","Page Layout"
+"FAQ style","FAQ style"
+"Categories columns","Categories columns"
+"Question style","Question style"
+"Limit question per category","Limit question per category"
+"Enter the meta title for FAQ homepage.","Enter the meta title for FAQ homepage."
+"Enter the meta description for FAQ homepage.","Enter the meta description for FAQ homepage."
+"Meta Keyword","Meta Keyword"
+"Enter the meta keyword for FAQ homepage.","Enter the meta keyword for FAQ homepage."
+Robots,Robots
+"Product Tab Configuration","Product Tab Configuration"
+"Select <b>Yes</b> to show FAQ on Product tabs.","Select <b>Yes</b> to show FAQ on Product tabs."
+"Tab Title","Tab Title"
+"Limit question","Limit question"
+"Show Name","Show Name"
+"Show Date of Question/Answer","Show Date of Question/Answer"
+"Show Terms & Conditions when submitting questions","Show Terms & Conditions when submitting questions"
+"Link popup label","Link popup label"
+Title,Title
+"Enter the title of Terms & Conditions.","Enter the title of Terms & Conditions."
+Content,Content
+"Enter the content of Terms & Conditions.","Enter the content of Terms & Conditions."
+"Email Configuration","Email Configuration"
+Enabled,Enabled
+"Email to Customer","Email to Customer"
+"Send an email to a customer when an answer is added","Send an email to a customer when an answer is added"
+Sender,Sender
+Template,Template
+"Email to Admin","Email to Admin"
+"Send an email to admins when a question is created","Send an email to admins when a question is created"
+"Send to","Send to"
+"Mageplaza FAQs","Mageplaza FAQs"
+"Mageplaza FAQs Widget Title","Mageplaza FAQs Widget Title"
+"Add New","Add New"
+"Store View","Store View"
+"All Categories","All Categories"
+Delete,Delete
+"Delete Articles","Delete Articles"
+"Are you sure you wan't to delete selected Articles?","Are you sure you wan't to delete selected Articles?"
+"Change Visibility","Change Visibility"
+Publish,Publish
+"Url Key","Url Key"
+Author,Author
+"Helpful Rate","Helpful Rate"
+"Created Date","Created Date"
+"Updated Date","Updated Date"
+Edit,Edit
+"Delete Categories","Delete Categories"
+"Are you sure you wan't to delete selected Categories?","Are you sure you wan't to delete selected Categories?"
+"Change status","Change status"
+Disabled,Disabled
+"No. of Questions","No. of Questions"

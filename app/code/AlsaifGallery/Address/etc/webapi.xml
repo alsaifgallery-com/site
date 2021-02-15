@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/alsaifgallery/addresses/me" method="GET">
+        <service class="AlsaifGallery\Address\Api\AddressManagementInterface" method="getAllAddresses"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/alsaifgallery/addresses/me/add" method="POST">
+        <service class="AlsaifGallery\Address\Api\AddressManagementInterface" method="postAddAddresses"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/alsaifgallery/addresses/me/update/:addressId" method="POST">
+        <service class="AlsaifGallery\Address\Api\AddressManagementInterface" method="postUpdateAddAddresses"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/alsaifgallery/addresses/me/:addressId" method="DELETE">
+        <service class="AlsaifGallery\Address\Api\AddressManagementInterface" method="deleteAddresses"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+</routes>

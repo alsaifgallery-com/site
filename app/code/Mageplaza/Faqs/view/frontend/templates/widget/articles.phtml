@@ -1,0 +1,188 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\Faqs\Block\Widget\Articles $block */
+?>
+<?php
+$categories = $block->getCategoryCollection();
+?>
+<div id="mpfaqs-widget-list-container" class="mpfaqs-widget-list mpfaqs">
+    <div class="section grey lighten-5 row">
+        <div class="mpfaqs-widget-title">
+            <h3><a href="<?php echo $block->helperData->getFaqsUrl(); ?>"><?php echo $block->getTitle(); ?></a></h3>
+        </div>
+        <div class="mpfaqs-widget-content">
+            <?php if ($categories->getData()): ?>
+                <?php foreach ($categories as $category):
+                    if ($category->getQuestionNum() != '0'): ?>
+                        <div class="mpfaqs-widget-list__block col m6 s12">
+                            <div class="mpfaqs-widget-list__block__category">
+                                <h4>
+                                    <a href="<?php echo $category->getUrl() ?>">
+                                        <i class="<?php echo $category->getIcon() ?>"
+                                           aria-hidden="true">
+
+                                        </i>
+                                        <?php echo $category->getName() ?>
+                                        <span class="grey-text text-darken-1">
+                                        (<?php echo $category->getQuestionNum() ?>)
+                                        </span>
+                                    </a>
+                                    <hr>
+                                </h4>
+                            </div>
+                            <ul class="mpfaqs-widget-list__block__question collapsible">
+                                <?php foreach ($articles = $block->getArticleByCategory($category->getId()) as $article): ?>
+                                    <li class="mpfaqs-widget-item">
+                                        <div class="collapsible-header in-active"
+                                             data-id="<?php echo $category->getId() . '-' . $article->getId() ?>">
+                                            <span>
+                                                <?php if ($block->isCollapsible()): ?>
+                                                    <i class="far fa-file-alt"></i><?php echo $article->getName(); ?>
+                                                <?php else: ?>
+                                                    <a href="<?php echo $article->getUrl() ?>">
+                                                        <i class="far fa-file-alt"></i><?php echo $article->getName(); ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                            </span>
+                                        </div>
+                                        <div id="mpfaqs-widget-list__block__question__content--<?php echo $category->getId() . '-' . $article->getId() ?>"
+                                             class="collapsible-body">
+                                            <?php if ($article->getShortAnswer()): ?>
+                                                <?php if ($block->helperData->isEnabledDetailPage()): ?>
+                                                    <p><?php echo $block->helperData->getPageFilter($article->getShortAnswer()); ?>
+                                                        <br>
+                                                        <a href="<?php echo $article->getUrl() ?>"><?php echo __("Read more"); ?> </a>
+                                                    </p>
+                                                <?php else: ?>
+                                                    <p><?php echo $block->helperData->getPageFilter($article->getArticleContent()); ?></p>
+                                                <?php endif; ?>
+                                            <?php else: ?>
+                                                <p><?php echo __('There is no answer for this question.') ?></p>
+                                            <?php endif; ?>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                                <div class="view-widget-all-faq"><i class="fas fa-angle-double-down"></i>
+                                    <a class="load-more"> <?php echo __("View all"); ?></a>
+                                </div>
+                            </ul>
+                        </div>
+                    <?php endif;
+                endforeach; ?>
+            <?php else: ?>
+                <div><?php echo __("There is no FAQ match with your search."); ?></div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <script type="text/javascript">
+        require(['jquery', 'mpFaqCollapsible'], function ($, mpFaqCollapsible) {
+            var mpSelector = {
+                listBlock: $('.mpfaqs-widget-list__block'),
+                item: '.mpfaqs-widget-list__block__question li.mpfaqs-widget-item',
+                itemHidden: '.mpfaqs-widget-list__block__question li.mpfaqs-widget-item:hidden',
+                itemHeader: $('.mpfaqs-widget-list__block__question li .collapsible-header'),
+                itemContent: '#mpfaqs-widget-list__block__question__content--',
+                viewAll: '.view-widget-all-faq',
+                viewAllButton: '.view-widget-all-faq a',
+            };
+            var limitCount = '<?php echo $block->getLimit(); ?>';
+            var isCollapsible = '<?php echo $block->isCollapsible()?>';
+            mpFaqCollapsible(mpSelector, limitCount, isCollapsible);
+        });
+    </script>
+</div>
+<link rel="stylesheet" type="text/css" media="all"
+      href="<?php echo $block->getViewFileUrl('Mageplaza_Faqs::css/style.css'); ?>
+">
+<link rel="stylesheet" type="text/css" media="all"
+      href="<?php echo $block->getViewFileUrl('Mageplaza_Faqs::css/materialize.css'); ?>
+">
+<link rel="stylesheet" type="text/css" media="all" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+<style type="text/css">
+    .mpfaqs-widget-list__block__category hr {
+        border-top: solid 2px<?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+        width: 120px;
+        margin: 10px 0 0 0;
+    }
+
+    .mpfaqs-widget-list__block__category a {
+        color: inherit;
+    }
+
+    .mpfaqs-widget-list__block__category a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .view-widget-all-faq a {
+        cursor: pointer;
+        color: inherit;
+    }
+
+    .view-widget-all-faq a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-widget-list__block__question .collapsible-header {
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: <?php echo ($block->isCollapsible())?'pointer': 'unset' ?>;
+    }
+
+    .mpfaqs-widget-list__block__question .collapsible-header a {
+        color: inherit;
+    }
+
+    .mpfaqs-widget-list__block__question .collapsible-header a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-widget-list__block__question .collapsible-header i {
+        color: #ccc;
+    }
+
+    .mpfaqs-widget-list__block__question .active i {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-widget-list__block__question .collapsible-body {
+        display: none;
+    }
+
+    .mpfaqs-widget-list__block__question .collapsible-body a {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-widget-title a {
+        color: inherit;
+    }
+
+    .mpfaqs-widget-title a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-widget-content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+</style>

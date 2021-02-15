@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="GET" url="/V1/alsaifgallery/dailydeals/productsandcategories">
+		<service class="AlsaifGallery\DailyDeals\Api\DailyDealsManagementInterface" method="getProductsAndCategorieseDailyDeals"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+        <route method="GET" url="/V1/alsaifgallery/dailydeals/products/:categoryId/:page/:limit">
+		<service class="AlsaifGallery\DailyDeals\Api\DailyDealsManagementInterface" method="getProductsDealsOfCategory"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+         <route method="GET" url="/V1/alsaifgallery/dailydeals/products/:page/:limit">
+		<service class="AlsaifGallery\DailyDeals\Api\DailyDealsManagementInterface" method="getProductsDeal"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+         <route method="GET" url="/V1/alsaifgallery/dailydeals/categories/:page/:limit">
+		<service class="AlsaifGallery\DailyDeals\Api\DailyDealsManagementInterface" method="getCategoriesDeal"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+
+	</route>
+       
+</routes>

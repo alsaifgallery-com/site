@@ -1,0 +1,452 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+.mpfaqs-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 55px;
+}
+
+/** search css */
+.mpfaqs-search__field {
+    width: 65%;
+    margin: auto;
+    position: relative;
+}
+
+.mpfaqs-search__field i {
+    position: absolute;
+    font-size: 25px;
+    top: 11%;
+    left: 2%;
+}
+
+.mpfaqs-search__action {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.mpfaqs-search__action .btn {
+    height: 50.5px !important;
+    line-height: 48px !important;
+    font-weight: 600;
+}
+
+#mpfaqs-search__field__searchbox {
+    padding: 15px 10px 15px 50px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    height: auto;
+    margin: 0 0 10px 0;
+    display: block;
+    box-sizing: border-box;
+    box-shadow: none !important;
+}
+
+#mpfaqs-search__field__searchbox:focus {
+    box-shadow: none !important;
+}
+
+@media (max-width: 480px) {
+    .mpfaqs-search__action .btn {
+        width: 65px;
+        padding: 0;
+        font-size: 13px;
+    }
+
+    #mpfaqs-search__field__searchbox {
+        padding: 15px 10px 15px 7px;
+    }
+
+    .mpfaqs-search__field i {
+        display: none;
+    }
+}
+
+.mpfaqs-suggestion-content i {
+    padding: 7px;
+}
+
+.mpfaqs-suggestion {
+    cursor: pointer;
+}
+
+/** article materialize view css*/
+.mpfaqs-container .section {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mpfaqs-container__content {
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-bottom: 30px;
+}
+
+.mpfaqs-container__content__header {
+    margin-bottom: 30px;
+    padding: 10px 10px 10px 0;
+    width: 100%;
+    border-bottom: solid 1px #bdbdbd;
+}
+
+.mpfaqs-container__content__header .article-icon {
+    float: left;
+    padding: 10px 10px 0 5px;
+}
+
+.mpfaqs-container__content__header .faqs-loader {
+    position: absolute;
+    width: 20px;
+    top: 0;
+    right: 0;
+}
+
+.mpfaqs-container__content__header .like-count {
+    position: relative;
+}
+
+.mpfaqs-container__content__header__information {
+    padding: 15px 20px 13px 16px !important;
+}
+
+.mpfaqs-container__content__header__information h3 {
+    margin: 0 !important;
+}
+
+.mpfaqs-container__content__header__information .header-description {
+    margin-top: 8px;
+}
+
+.mpfaqs-container__content__header__information span {
+    padding-right: 15px;
+}
+
+.addthis_inline_share_toolbox a {
+    padding: 10px !important;
+    margin: 0 7px !important;
+    background-color: transparent !important;
+    border: solid 1px #bdbdbd !important;
+}
+
+.mpfaqs-container__additional-info {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.mpfaqs-container__additional-info__social {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.mpfaqs-container__additional-info__rating {
+    padding-top: 10px;
+}
+
+#rating-label {
+    margin-bottom: 60px;
+}
+
+#rating-actions {
+    margin-top: 30px;
+}
+
+#rating-actions a {
+    width: 85%;
+}
+
+#rating-actions .in-active {
+    background-color: #eeeeee;
+    color: inherit;
+}
+
+/** article index materialize css*/
+.mpfaqs-list .collapsible {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#mpfaqs-list-container {
+    position: relative;
+}
+
+#mpfaqs-list-container .section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.mpfaqs-list__block {
+    margin-bottom: 15px;
+    margin-left: 0 !important;
+}
+
+.mpfaqs-list__block__category {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.mpfaqs-list__block__category span {
+    font-size: 1.4rem;
+}
+
+.mpfaqs-list__block__question li.mpfaqs-item {
+    display: none;
+    margin-bottom: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.view-all-faq {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.mpfaqs-list__block__question .collapsible-header a {
+    color: inherit;
+}
+
+.mpfaqs-list__block__question .collapsible-header i {
+    color: #ccc;
+}
+
+.mpfaqs-list__block__question .collapsible-body {
+    display: none;
+}
+
+.ln_overlay {
+    background-color: #FFFFFF;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 555;
+    display: none;
+}
+
+.loader img {
+    top: 40%;
+    left: 45%;
+    display: block;
+    position: fixed;
+}
+
+.ln_slider_container {
+    width: calc(100% - 20px);
+    margin: 0 15px 0 5px;
+}
+
+/** mpfaqs product tab materialize css */
+#mpfaqs-tab-list-container h3 {
+    font-weight: 300;
+    font-size: 2.6rem;
+}
+
+#mpfaqs-tab-list-container .section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.mpfaqs-tab-list__title {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.mpfaqs-tab-list .collapsible {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.mpfaqs-tab-list__block__question li.mpfaqs-item {
+    display: none;
+    margin-bottom: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.mpfaqs-tab-list__block__question .collapsible-header a {
+    color: inherit;
+}
+
+.mpfaqs-tab-list__block__question .collapsible-header i {
+    color: #ccc;
+}
+
+.mpfaqs-tab-list__block__question_author i {
+    width: 2rem;
+    font-size: 1.6rem;
+    display: inline-block;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.mpfaqs-tab-form {
+    display: none;
+}
+
+.view-tab-all-faq {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.view-tab-all-faq a {
+    cursor: pointer;
+    color: inherit !important;
+}
+
+/** question form css */
+.mpfaqs-form-title {
+    padding: 10px;
+    border-bottom: solid 1px #ccc;
+    margin-bottom: 15px;
+}
+
+.mpfaqs-form-title span {
+    font-size: 2.6rem;
+    font-weight: 300;
+}
+
+.mpfaqs-form-fieldset input {
+    height: 3.8rem !important;
+}
+
+.mpfaqs-form-fieldset label, .mpfaqs-form-fieldset span {
+    font-size: 1.3rem !important;
+}
+
+#mpfaqs-form-actions {
+    padding-top: 30px;
+}
+
+@media (max-width: 480px) {
+    .mpfaqs-form-fieldset label, .mpfaqs-form-fieldset span {
+        font-size: 1.1rem !important;
+    }
+}
+
+.mpfaqs-form-fieldset textarea {
+    height: 46px !important;
+}
+
+#mpfaqs-question-form .faqs-loader {
+    width: 35px;
+    display: none;
+    position: absolute;
+}
+
+@media (max-width: 394px) {
+    #mpfaqs-question-form .faqs-loader {
+        position: relative;
+    }
+}
+
+.white-popup {
+    position: relative;
+    background: #FFF;
+    width: auto;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#term-popup {
+    padding: 30px 30px 75px 40px;
+}
+
+#term-popup a {
+    cursor: pointer;
+    float: right;
+    margin-top: 15px;
+}
+
+.term-popup__term-content {
+    max-height: 600px;
+    overflow-x: auto;
+}
+
+.term-popup__term-title {
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 20px;
+}
+
+.term-popup__term-title h2 {
+    margin: 0;
+    font-weight: 600;
+}
+
+/** article widget css */
+.mpfaqs-widget-list .collapsible {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#mpfaqs-widget-list-container {
+    position: relative;
+}
+
+#mpfaqs-widget-list-container .section {
+    width: 100%;
+    margin-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.mpfaqs-widget-list__block {
+    margin-bottom: 15px;
+    margin-left: 0 !important;
+}
+
+.mpfaqs-widget-list__block__category {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.mpfaqs-widget-list__block__category span {
+    font-size: 1.4rem;
+}
+
+.mpfaqs-widget-list__block__question li.mpfaqs-widget-item {
+    display: none;
+    margin-bottom: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.view-widget-all-faq {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.mpfaqs-widget-list__block__question .collapsible-header a {
+    color: inherit;
+}
+
+.mpfaqs-widget-list__block__question .collapsible-header i {
+    color: #ccc;
+}
+
+.mpfaqs-widget-list__block__question .collapsible-body {
+    display: none;
+}

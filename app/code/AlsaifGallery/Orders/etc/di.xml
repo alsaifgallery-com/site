@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="AlsaifGallery\Orders\Api\OrderManagementInterface" type="AlsaifGallery\Orders\Model\OrderManagement"/>
+<preference for="Magento\Sales\Block\Adminhtml\Order\Status\Edit\Form" type="AlsaifGallery\Orders\Block\Adminhtml\Order\Status\Edit\Form" />  
+<preference for="Magento\Sales\Controller\Adminhtml\Order\Status\Save" type="AlsaifGallery\Orders\Controller\Adminhtml\Order\Status\Save" />  
+</config>

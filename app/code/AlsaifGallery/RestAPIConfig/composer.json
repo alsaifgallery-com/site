@@ -1,0 +1,25 @@
+{
+    "name": "alsaifgallery/module-restapiconfig",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [{
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "Mostafa Sakr",
+            "email": "m.sakr87@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "AlsaifGallery\\RestAPIConfig\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

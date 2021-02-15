@@ -1,0 +1,79 @@
+<?php
+include 'arabicdate.php';
+date_default_timezone_set('Asia/Riyadh');
+$cities = $block->getRegionsOfCountry('sa');
+$objectManager =  \Magento\Framework\App\ObjectManager::getInstance();
+$storeManager  = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$storeCode       = $storeManager->getStore()->getCode();
+if(substr($storeCode,-2) == 'ar') {
+  $today = ArabicDate("");
+  $nextDay = ArabicDate("+1 days");
+  $fifthtDay = ArabicDate("+5 days");
+
+} else {
+  $today = date ("D Y-M-d"); // Or can put $today = date ("Y-m-d");
+  $nextDay = date ("D Y-M-d", strtotime ($today ."+1 days"));
+  $fifthtDay = date ("D Y-M-d", strtotime ($today ."+5 days"));
+
+}
+//echo date("D y-M-d");
+if($cities) {
+?>
+<div class="shipping-estimate-container">
+    <span><?php echo __("Expected delivery date:") ?>
+
+      <select class="cities" name="Cities" id="cities">
+        <option value=""><?php echo __("Select city") ?></option>
+        <?php
+          foreach($cities as $city){
+            if($city['title']):
+            echo '<option value="'.$city['title'].'">'.$city['label'].'</option>';
+          endif;
+          }
+          ?>
+      </select>
+    </span>
+    <div id="shipping-estimate"></div>
+</div>
+<script type="text/javascript">
+require(['jquery'],function(){
+  jQuery(document).ready(function() {
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var date = new Date();
+    console.log(date);
+    jQuery('select option[value="Riyadh"]').attr("selected","selected");
+    jQuery( "select option:selected" ).each(function() {
+          city = jQuery( this ).text();
+          if(city == "Riyadh" || city == "الرياض"){
+            if (date.getHours() <= 12) {
+              jQuery("#shipping-estimate").text('<?php echo $today ?>');
+            }else {
+              jQuery("#shipping-estimate").text('<?php echo $nextDay ?>');
+            }
+          } else {
+            jQuery("#shipping-estimate").text('<?php echo $fifthtDay ?>');
+          }
+    })
+    jQuery("#cities").change(function(){
+      var city = "";
+      jQuery( "select option:selected" ).each(function() {
+            city = jQuery( this ).text();
+            if(city == "Riyadh" || city == "الرياض"){
+              if (date.getHours() <= 12) {
+                jQuery("#shipping-estimate").text('<?php echo $today ?>');
+              }else {
+                jQuery("#shipping-estimate").text('<?php echo $nextDay ?>');
+              }
+            } else {
+              jQuery("#shipping-estimate").text('<?php echo $fifthtDay ?>');
+            }
+      })
+    })
+  })
+});
+</script>
+<?php } else { ?>
+<div class="shipping-estimate-container">
+  <span><?php echo __("Delivery outside Saudi Arabia will take from 10 - 15 days") ?></span>
+</div>
+<?php } ?>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mageplaza_Faqs::faqs" title="FAQs" module="Mageplaza_Faqs" sortOrder="110" resource="Mageplaza_Faqs::faqs" parent="Magento_Backend::content"/>
+        <add id="Mageplaza_Faqs::article" title="Manage Articles" module="Mageplaza_Faqs" sortOrder="10" action="mpfaqs/article" resource="Mageplaza_Faqs::article" parent="Mageplaza_Faqs::faqs"/>
+        <add id="Mageplaza_Faqs::category" title="Manage Categories" module="Mageplaza_Faqs" sortOrder="20" action="mpfaqs/category" resource="Mageplaza_Faqs::category" parent="Mageplaza_Faqs::faqs"/>
+    </menu>
+</config>

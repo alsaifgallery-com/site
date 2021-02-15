@@ -1,0 +1,5 @@
+
+type Mutation {
+
+    mergeCarts (source_cart_id: String!, destination_cart_id: String!): Cart! @doc(description:"Merges the source cart into the destination cart") @resolver(class: "AlsaifGallery\\Cart\\Model\\Resolver\\MergeCarts")
+}

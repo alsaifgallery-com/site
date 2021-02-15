@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+	<extension_attributes for="Magento\Customer\Api\Data\AddressInterface">
+            <attribute code="address_label" type="string"/>
+            <attribute code="phone_verified" type="string"/>
+            <attribute code="phone_code" type="string"/>
+            <attribute code="address_latitude" type="string"/>
+            <attribute code="address_longitude" type="string"/>
+            <attribute code="extra_info" type="string"/>
+            <attribute code="address_tele_code" type="string"/>
+            <attribute code="is_default_billing" type="boolean"/>
+            <attribute code="is_default_shipping" type="boolean"/>
+   	</extension_attributes>
+</config>

@@ -1,0 +1,67 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<div class="checkout-success success-page">
+    <div class="card">
+      <div style="width:65%; margin:0 auto;">
+        <!-- <i class="fa fa-check" aria-hidden="true"></i> -->
+        <img src='<?php echo $this->getViewFileUrl('images/thankyou.gif'); ?>' alt="thank you" height="120px">
+      </div>
+      <h1><?php echo __('Success'); ?></h1>
+      <?php if ($block->getOrderId()):?>
+          <?php if ($block->getCanViewOrder()) :?>
+              <p><?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+          <?php  else :?>
+              <p><?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+          <?php endif;?>
+              <p><?= /* @escapeNotVerified */ __('We\'ll email you an order confirmation with details and tracking info.') ?></p>
+      <?php endif;?>
+
+      <?= $block->getAdditionalInfoHtml() ?>
+
+      <div>
+          <div class="primary" style="width: 100%; margin-top: 50px;">
+              <a class="action primary continue" href="<?= /* @escapeNotVerified */ $block->getContinueUrl() ?>"><span><?= /* @escapeNotVerified */ __('Continue Shopping') ?></span></a>
+          </div>
+      </div>
+    </div>
+    <?= $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('success-page-steps')->toHtml(); ?>
+</div>
+
+<style>
+      .success-page {
+        text-align: center;
+        padding: 40px 0;
+      }
+      .success-page  h1 {
+          color: #be1e2c;
+          font-weight: 900;
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+        .success-page p {
+          color: #404F5E;
+          font-size:20px;
+          margin: 10px;
+        }
+      .success-page i {
+        color: #ffffff;
+        font-size: 80px;
+        line-height: 150px;
+      }
+      .success-page .card {
+        background: white;
+        padding: 0 20px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+      }
+    </style>

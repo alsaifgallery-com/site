@@ -1,0 +1,26 @@
+{
+    "name": "alsaifgallery/module-sociallogin",
+    "description": "",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "email": "info@mage2gen.com",
+            "name": "Mage2Gen"
+        },
+        {
+            "email": "khatab.najeeb88@gmail.com",
+            "name": "Khatab Najeeb"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "AlsaifGallery\\SocialLogin\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

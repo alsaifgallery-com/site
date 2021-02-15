@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/carts/mine/delete/item/:itemId" method="DELETE">
+        <!--<service class="Magento\Quote\Api\CartItemRepositoryInterface" method="deleteById"/>-->
+        <service class="AlsaifGallery\Cart\Api\CartItemInterface" method="deleteById"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/carts/mine/crosssell" method="GET">
+        <service class="AlsaifGallery\Cart\Api\CartManagementInterface" method="getCrossSellProducts"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+
+    <route url="/V1/carts/mine/mergecart" method="POST">
+        <service class="AlsaifGallery\Cart\Api\CartManagementInterface" method="mergeCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+
+
+
+        <!-- Managing mine Cart Coupons -->
+    <route url="/V1/carts/mine/add/coupons/:couponCode" method="PUT">
+        <service class="AlsaifGallery\Cart\Api\CouponManagementInterface" method="set"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/remove/coupons" method="DELETE">
+        <service class="AlsaifGallery\Cart\Api\CouponManagementInterface" method="remove"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+        <!-- Managing my Cart -->
+    <route url="/V1/carts/mine/obtain" method="POST">
+        <!--<service class="Magento\Quote\Api\CartManagementInterface" method="createEmptyCartForCustomer"/>-->
+        <service class="AlsaifGallery\Cart\Api\CartManagementInterface" method="createEmptyCartForCustomer"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <!-- My place order with payment information saving -->
+    <route url="/V1/carts/mine/payment-information/place" method="POST">
+        <!--<service class="Magento\Checkout\Api\PaymentInformationManagementInterface" method="savePaymentInformationAndPlaceOrder"/>-->
+        <service class="Magento\Checkout\Api\PaymentInformationManagementInterface" method="savePaymentInformationAndPlaceOrder"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+</routes>

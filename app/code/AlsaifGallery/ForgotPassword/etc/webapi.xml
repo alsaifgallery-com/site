@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="POST" url="/V1/alsaifgallery/verifycustomer">
+		<service class="AlsaifGallery\ForgotPassword\Api\VerifyCustomerManagementInterface" method="postVerifyCustomer"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="POST" url="/V1/alsaifgallery/sendcode">
+		<service class="AlsaifGallery\ForgotPassword\Api\VerifyCustomerManagementInterface" method="postSendCode"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="POST" url="/V1/alsaifgallery/verifycode">
+		<service class="AlsaifGallery\ForgotPassword\Api\VerifyCodeManagementInterface" method="postVerifyCode"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="POST" url="/V1/alsaifgallery/resetpassword">
+		<service class="AlsaifGallery\ForgotPassword\Api\ResetPasswordManagementInterface" method="postResetPassword"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+</routes>

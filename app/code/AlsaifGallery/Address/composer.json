@@ -1,0 +1,22 @@
+{
+    "name": "alsaifgallery/module-address",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "a.helal@alsaifgallery.com",
+            "name": "Ahmed Helal"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "AlsaifGallery\\Address\\": ""
+        }
+    }
+}

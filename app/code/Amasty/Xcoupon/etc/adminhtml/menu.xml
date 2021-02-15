@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Xcoupon
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Amasty_Xcoupon::report_usage"
+            title="Coupon Usage Report"
+            translate="title"
+            module="Amasty_Xcoupon"
+            sortOrder="40"
+            parent="Magento_CatalogRule::promo"
+            action="amasty_xcoupon/report/usage"
+            resource="Amasty_Xcoupon::report_usage"
+        />
+    </menu>
+</config>

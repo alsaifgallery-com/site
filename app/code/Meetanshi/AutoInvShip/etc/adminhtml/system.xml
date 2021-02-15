@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="meetanshi" translate="label" sortOrder="100">
+            <label><![CDATA[]]></label>
+        </tab>
+        <section id="autoinvship" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label><![CDATA[Auto Invoice & Shipment]]></label>
+            <tab>meetanshi</tab>
+            <resource>Meetanshi_AutoInvShip::autoinvship_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Auto Invoice & Shipment]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="payment_methods" translate="label" type="multiselect" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Methods</label>
+                    <source_model>Meetanshi\AutoInvShip\Model\Adminhtml\System\Config\Methods</source_model>
+                    <comment><![CDATA[<b>Above is the list of payment methods enabled in your Magento 2 store. You can select some or all of them to enable Auto Invoice and Shipment for.</b>]]></comment>
+                </field>
+                <field id="auto_invoice" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Automatic Invoice Generation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="auto_shipment" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Automatic Shipment Generation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <depends>
+                        <field id="auto_invoice">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

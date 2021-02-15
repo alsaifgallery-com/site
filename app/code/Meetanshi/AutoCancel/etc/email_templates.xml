@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="admin_autocancel_general_email_template" label="Auto Cancel Order Email Template" file="autocancel.html"
+              type="html" module="Meetanshi_AutoCancel" area="frontend"/>
+    <template id="admin_autocancel_general_customer_email_template" label="Auto Cancel Order Customer Email Template" file="autocancelcustomer.html"
+              type="html" module="Meetanshi_AutoCancel" area="frontend"/>
+</config>

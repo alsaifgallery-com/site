@@ -1,0 +1,138 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Store\Block\Switcher $block */
+?>
+<?php if (count($block->getGroups())>1) : ?>
+<!-- Desktop view -->
+<div id="overlay"></div>
+<div class="switcher store switcher-store" id="switcher-store">
+    <strong class="label switcher-label"><span><?= $block->escapeHtml(__('Select Store')) ?></span></strong>
+    <div class="actions dropdown options switcher-options">
+        <?php foreach ($block->getGroups() as $_group) : ?>
+          <?php $country = ''; $flag = ''; ?>
+           <?php
+            switch ($block->escapeHtml($_group->getName())) {
+              case "Saudi Arabia":
+                $country = __("Saudi Arabia");
+                $flag = 'sa';
+                break;
+              case "Bahrain":
+                $country = __("Bahrain");
+                $flag = 'bh';
+                break;
+              case "Kuwait":
+                $country = __("Kuwait");
+                $flag = 'kw';
+                break;
+              case "Oman":
+                $country = __("Oman");
+                $flag = 'om';
+                break;
+              case "United Arab Emirates":
+                $country = __("United Arab Emirates");
+                $flag = 'ae';
+                break;
+              case "Qatar":
+                $country = __("Qatar");
+                $flag = 'qa';
+                break;
+              default:
+            }
+            ?>
+            <?php if ($_group->getId() == $block->getCurrentGroupId()) : ?>
+                <div class="action toggle switcher-trigger"
+                     role="button"
+                     tabindex="0"
+                     data-mage-init='{"dropdown":{}}'
+                     data-toggle="dropdown"
+                     data-trigger-keypress-button="true"
+                     id="switcher-store-trigger">
+                    <strong>
+                      <span><img class="image-language" src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/flags/' . $block->escapeHtml($_group->getCode()) . '.png') ?>" /></span>
+                      <span  id="country_switcher" style="font-size: 15px; color: #303030;position: relative;top: -5px;"><?php echo $country; ?></span>
+                    </strong>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+          <ul class="dropdown switcher-dropdown">
+              <?php foreach ($block->getGroups() as $_group) : ?>
+                <?php $country = ''; $flag = ''; ?>
+                 <?php
+                  switch ($block->escapeHtml($_group->getName())) {
+                    case "Saudi Arabia":
+                      $country = __("Saudi Arabia");
+                      $flag = 'sa';
+                      break;
+                    case "Bahrain":
+                      $country = __("Bahrain");
+                      $flag = 'bh';
+                      break;
+                    case "Kuwait":
+                      $country = __("Kuwait");
+                      $flag = 'kw';
+                      break;
+                    case "Oman":
+                      $country = __("Oman");
+                      $flag = 'om';
+                      break;
+                    case "United Arab Emirates":
+                      $country = __("United Arab Emirates");
+                      $flag = 'ae';
+                      break;
+                    case "Qatar":
+                      $country = __("Qatar");
+                      $flag = 'qa';
+                      break;
+                    default:
+                  }
+                  ?>
+                  <?php if (!($_group->getId() == $block->getCurrentGroupId())) : ?>
+                      <li class="switcher-option">
+                          <a href="#" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($_group->getDefaultStore()) ?>'>
+                            <img class="image-language" src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/flags/' . $block->escapeHtml($_group->getCode()) . '.png') ?>" />
+                            <span style="position: relative;top: -5px;"><?php echo $country; ?></span>
+                          </a>
+                      </li>
+                  <?php endif; ?>
+              <?php endforeach; ?>
+          </ul>
+    </div>
+</div>
+<?php endif; ?>
+
+<!-- Mobile view -->
+
+<!-- <script>
+  // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    require(['jquery'],function(){
+      jQuery(document).ready(function() {
+        console.log(123);
+        jQuery('#switcher-store').click(function(){
+                console.log(12);
+                jQuery('#overlay').show();
+            });
+        jQuery('#overlay').click(function(){
+                jQuery(this).hide();
+            });
+      });
+    });
+  // }
+</script> -->
+
+<script>
+  require(['jquery'],function(){
+      jQuery(document).ready(function() {
+          jQuery(".switcher-trigger").click(function(){
+              console.log(123);
+              jQuery('#overlay').css("display", "block");
+          });
+          jQuery('#overlay').click(function(){
+              jQuery(this).css("display", "none");
+          });
+      });
+  });
+</script>

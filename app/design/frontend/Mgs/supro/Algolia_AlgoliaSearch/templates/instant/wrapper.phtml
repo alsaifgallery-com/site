@@ -1,0 +1,75 @@
+<?php /** @var \Algolia\AlgoliaSearch\Block\Instant\Wrapper $block */ ?>
+
+<!-- Wrapping template -->
+<script type="text/template" id="instant_wrapper_template">
+    {{#findAutocomplete}}
+        <div id="algolia-autocomplete-container"></div>
+    {{/findAutocomplete}}
+
+    <div id="algolia_instant_selector"
+         class="<?php echo $block->escapeHtml($block->hasFacets() ? ' with-facets' : ''); ?>" style="margin-top: 40px;">
+        <div class="row">
+          <div class="layout-title-default layout_type1 page-title-wrapper " style="display:none">
+              <h1 class="page-title " id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
+                <span class="base" data-ui-id="page-title-wrapper"><?php echo __("Search Results");?></span>
+              </h1>
+              <div class="breadcrumbs">
+                <ul class="items">
+                  <li class="item home">
+                      <a href="#" title="الانتقال إلى الصفحة الرئيسية">
+                  الصفحة الرئيسية				</a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-12" id="algolia-left-container">
+                <div id="refine-toggle" class="visible-xs visible-sm">
+                  <i class="fa fa-filter" aria-hidden="true"></i> <?php echo $block->escapeHtml(__('filter')); ?>
+                </div>
+                <div class="hidden-xs hidden-sm" id="instant-search-facets-container">
+                    <div class="block-title filter-title close-filter">
+                        <strong><?= $block->escapeHtml(__('Shop By')) ?></strong>
+                    </div>
+                    <div id="clear-refinements"></div>
+                    <div id="current-refinements"></div>
+                </div>
+            </div>
+
+            <div class="col-md-9" id="algolia-right-container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            {{#second_bar}}
+                               <div id="instant-search-bar"></div>
+                            {{/second_bar}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div itemscope itemtype="http://schema.org/ItemList" class="hits">
+                            <div class="algolia-infos">
+                                <div class="pull-left" id="algolia-stats" style="display: none;"></div>
+                                <div class="pull-right">
+                                    <div class="sort-by-label pull-left">
+                                        <span style="position: relative;top: 12px;"><?php echo $block->escapeHtml(__('Sort By')); ?> &nbsp;</span>
+                                    </div>
+                                    <div class="pull-left toolbar" id="algolia-sorts"></div>
+                                </div>
+                                <div class="algolia-clearfix"></div>
+                            </div>
+                            <div id="algolia-banner"></div>
+                            <div id="instant-empty-results-container"></div>
+                            <div id="instant-search-results-container"></div>
+                        </div>
+                    </div>
+                    <div class="algolia-clearfix"></div>
+                </div>
+
+                <div class="text-center">
+                    <div id="instant-search-pagination-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

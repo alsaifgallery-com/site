@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Xcoupon
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Amasty_Xcoupon::css/promo.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="promo_sales_rule_edit_tab_coupons">
+                <block class="Amasty\Xcoupon\Block\Adminhtml\Promo\Quote\Edit\Tab\Coupons\Import"
+                       name="amasty_xcoupon_promo_quote_edit_tab_coupons_import"
+                />
+                <block class="Amasty\Xcoupon\Block\Adminhtml\Promo\Quote\Edit\Tab\Coupons\Generate"
+                       name="amasty_xcoupon_promo_quote_edit_tab_coupons_generate"
+                        />
+                <arguments>
+                    <argument name="config" xsi:type="array">
+                        <item name="additionalClasses" xsi:type="string">amasty-xcoupon-coupon-main-fieldset</item>
+                    </argument>
+                </arguments>
+            </referenceBlock>
+
+        </referenceContainer>
+        <referenceBlock name="head.components">
+            <block class="Magento\Framework\View\Element\Js\Components"
+                   name="amasty_xcoupon_promo_quote_edit_tab_coupons_import_js"
+                   template="Amasty_Xcoupon::importjs.phtml"
+            />
+            <block class="Magento\Framework\View\Element\Js\Components"
+                   name="amasty_xcoupon_promo_quote_edit_tab_coupons_generate_js"
+                   template="Amasty_Xcoupon::generatejs.phtml"
+                    />
+        </referenceBlock>
+    </body>
+</page>

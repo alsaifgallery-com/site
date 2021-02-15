@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Shopbybrand
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- <referenceContainer name="page.main.title">
+           <block class="Mageplaza\Shopbybrand\Block\Product\Logoname" name="brand.product.logoname" before="-" template="product/logoname.phtml" />
+        </referenceContainer> -->
+
+		<!-- <referenceContainer name="product.info.main.details">
+			<container name="product.info.logo.container" label="Product info logo container" htmlTag="div" before="-" htmlClass="product-info-logo-container">
+				<block class="Mageplaza\Shopbybrand\Block\Product\Logo" name="brand.product.logo" before="-" template="product/logo.phtml" />
+
+				<block class="Magento\Catalog\Pricing\Render" name="product.price.final">
+					<arguments>
+						<argument name="price_render" xsi:type="string">product.price.render.default</argument>
+						<argument name="price_type_code" xsi:type="string">final_price</argument>
+						<argument name="zone" xsi:type="string">item_view</argument>
+					</arguments>
+				</block>
+				</container>
+		</referenceContainer> -->
+
+
+        <referenceBlock name="product.info.details">
+            <block class="Mageplaza\Shopbybrand\Block\Product\TabProduct" name="related.brand.product.tab" template="Mageplaza_Shopbybrand::product/tabproduct.phtml" group="detailed_info" ifconfig="shopbybrand/brandpage/related_products/enabled">
+                <block class="Mageplaza\Shopbybrand\Block\Product\TabProduct" name="related.brand.product.tab.detail" as="related_product" template="Magento_Catalog::product/list.phtml"/>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

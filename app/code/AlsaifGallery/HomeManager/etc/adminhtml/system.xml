@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="homemanagement_setting" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+
+            <label>Home Management</label>
+            <tab>alsaifgallery</tab>
+            <resource>AlsaifGallery_HomeManager::config_alsaifgallery_homemanagement</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+<!--                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>-->
+                <field id="management_text" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Manage Api Text</label>
+                    <comment>Add Text needed to manibulated with Api.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

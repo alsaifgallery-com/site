@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Sales\Block\Order\Info */ ?>
+<?php  $classColor = ''; ?>
+    <?php switch ($block->getOrder()->getStatus()) {
+      case 'pending':
+        // code...
+        $classColor = "gray";
+        break;
+      case 'processing':
+        // code...
+        $classColor = "yellow";
+        break;
+      case 'complete':
+        // code...
+        $classColor = "yellow";
+        break;
+      case 'delivered':
+        // code...
+        $classColor = "green";
+        break;
+      case 'canceled':
+        // code...
+        $classColor = "red";
+        break;
+      default:
+        // code...
+        break;
+    } ?>
+<span class="order-status <?php echo $classColor; ?>"><?= $block->escapeHtml($block->getOrder()->getStatusLabel()) ?></span>

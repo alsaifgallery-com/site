@@ -1,0 +1,131 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\Faqs\Block\Design $block */
+?>
+<style type="text/css">
+    /** article page css */
+    .mpfaqs-list__block__category hr {
+        border-top: solid 2px<?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+        width: 120px;
+        margin: 10px 0 0 0;
+    }
+
+    .mpfaqs-list__block__category a {
+        color: inherit !important;
+    }
+
+    .mpfaqs-list__block__category a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+    }
+
+    .view-all-faq a {
+        cursor: pointer;
+        color: inherit;
+    }
+
+    .view-all-faq a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-list__block__question .collapsible-header {
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: <?php echo ($block->helperData->getFaqsPageConfig('question_style') == Mageplaza\Faqs\Model\Config\Source\System\QuestionStyle::COLLAPSIBLE)?'pointer': 'unset' ?>;
+    }
+
+    .mpfaqs-list__block__question .collapsible-header a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-list__block__question .active i {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-list__block__question .collapsible-body a {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    /** helpful css */
+    #rating-actions .active {
+        background-color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+        color: white;
+    }
+
+    /** search css */
+    .mpfaqs-search .card-panel {
+        background: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    /** form css */
+    .mpfaqs-form-fieldset input:focus, .valid, .mpfaqs-form-fieldset textarea:focus {
+        box-shadow: 0 1px 0 0 <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+        border-bottom: 1px solid <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+    }
+
+    .mpfaqs-form-fieldset .active {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+    }
+
+    .mpfaqs-form-fieldset input[type=checkbox]:checked + span::before {
+        border-right: 2px solid <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+        border-bottom: 2px solid <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+    }
+
+    .mpfaqs-form-fieldset__submit-form {
+        background-color: <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+    }
+
+    #term-popup a {
+        background-color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    /** product tab css */
+    .mpfaqs-tab-list__title hr {
+        border-top: solid 2px<?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+        width: 120px;
+        margin: 10px 0 0 0;
+    }
+
+    .mpfaqs-tab-list__block__question .collapsible-header {
+        padding: 0 !important;
+        background: transparent;
+        border: none;
+        cursor: <?php echo ($block->helperData->getProductTabConfig('question_style') == Mageplaza\Faqs\Model\Config\Source\System\QuestionStyle::COLLAPSIBLE)?'pointer': 'unset' ?>;
+    }
+
+    .mpfaqs-tab-list__block__question .collapsible-header a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .mpfaqs-tab-list__block__question .active i {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+    }
+
+    #mpfaqs-add-question {
+        background-color: <?php echo $block->helperData->getConfigGeneral('faq_color')?>;
+    }
+
+    .view-tab-all-faq a:hover {
+        color: <?php echo $block->helperData->getConfigGeneral('faq_color')?> !important;
+    }
+</style>

@@ -1,0 +1,137 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+?>
+<?php if($block->checkCustomerStatus() || !$this->helper('MGS\Fbuilder\Helper\Data')->canShowFormLogin()): ?>
+	<div class="login-form logged-customer">
+		<button class="close-myaccount" id="close-myaccount"><span class="icon-cross2"></span></button>
+		<?php if($this->helper('MGS\Fbuilder\Helper\Data')->getCustomerName()) {?>
+			<div class="logged-customer-name">
+				<span><?php echo __("Hello: "); ?></span> <span><?php echo $this->helper('MGS\Fbuilder\Helper\Data')->getCustomerName(); ?></span>
+			</div>
+			<div class="top-mobile-account-container-logged">
+			  <ul class="top-mobile-menu">
+			    <li>
+			      <div class="item-menu">
+							<a href="<?php echo $this->getUrl('sales/order/history') ?>">
+				        <i class="fa fa-cubes" aria-hidden="true"></i>
+				        <span class=""><span><span><?php echo __("Orders")?></span></span>
+							</a>
+			      </div>
+			    </li>
+			    <li>
+			      <div class="item-menu">
+							<a href="<?php echo $this->getUrl('customer/account') ?>">
+								<i class="fa fa-retweet" aria-hidden="true"></i>
+				        <span class=""><span><?php echo __("Returns")?></span></span>
+							</a>
+			      </div>
+			    </li>
+					<li>
+			      <div class="item-menu">
+							<a href="<?php echo $this->getUrl('amstorecredit') ?>">
+								<i class="fa fa-money" aria-hidden="true"></i>
+				        <span class=""><span><?php echo __("Credit")?></span></span>
+							</a>
+			      </div>
+			    </li>
+					<li>
+			      <div class="item-menu">
+							<a href="<?php echo $this->getUrl('customer/account') ?>">
+								<i class="fa fa-users" aria-hidden="true"></i>
+				        <span class=""><span><?php echo __("Account")?></span></span>
+							</a>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+		<?php } else { ?>
+			<div class="top-mobile-account-container">
+			  <ul class="top-mobile-menu">
+			    <li>
+			      <div class="item-menu">
+							<a href="<?php echo $this->getUrl('customer/account/login') ?>">
+								<i class="fa fa-user" aria-hidden="true"></i>
+				        <span class=""><span><span><?php echo __("Login")?></span></span>
+							</a>
+			      </div>
+			    </li>
+			    <li>
+			      <div class="item-menu">
+							<a href="<?php echo $this->getUrl('customer/account/create') ?>">
+								<i class="fa fa-user-plus" aria-hidden="true"></i>
+				        <span class=""><span><?php echo __("Sign up")?></span></spana>
+							</a>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+		<?php } ?>
+		<!-- Action block:  Language, currencyand store switcher -->
+		<?= $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_custom_static_block_account_links')->toHtml(); ?>
+		<?php if($this->helper('MGS\Fbuilder\Helper\Data')->getCustomerName()) {?>
+			<div class="top-mobile-account-action" style="display: block">
+			  <ul>
+			    <li>
+			      <a href="<?php echo $this->getUrl('customer/account/logout') ?>"><img src="" alt=""><?php echo __("logout") ?></a>
+			    </li>
+			  </ul>
+			</div>
+		<?php } ?>
+		<?php //echo $block->getChildHtml('top.link.header'); ?>
+	</div>
+<?php else: ?>
+	<div class="login-form">
+		<button class="close-myaccount" id="close-myaccount"><span class="icon-cross2"></span></button>
+		<div class="block block-customer-login">
+			<div class="block-title">
+				<strong id="block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */ echo __('Login Your Account') ?></strong>
+			</div>
+			<div class="block-content" aria-labelledby="block-customer-login-heading">
+				<form class="form form-login"
+					  action="<?php /* @escapeNotVerified */ echo $block->getPostActionUrl() ?>"
+					  method="post"
+					  id="login-form-had"
+					  data-mage-init='{"validation":{}}'>
+					<?php echo $block->getBlockHtml('formkey'); ?>
+					<div class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+						<div class="field email required">
+							<div class="control">
+								<input placeholder="<?php /* @escapeNotVerified */ echo __('Email') ?>" name="login[username]" value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) :?> autocomplete="off"<?php endif; ?> id="email-had" type="email" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
+							</div>
+						</div>
+						<div class="field password required">
+							<div class="control">
+								<input placeholder="<?php /* @escapeNotVerified */ echo __('Password') ?>" name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()) :?> autocomplete="off"<?php endif; ?> class="input-text" id="pass-had" title="<?php /* @escapeNotVerified */ echo __('Password') ?>" data-validate="{required:true}">
+								<a class="action remind" href="<?php /* @escapeNotVerified */ echo $block->getForgotPasswordUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Forgot?') ?></span></a>
+							</div>
+						</div>
+						<?php echo $block->getChildHtml('form.additional.info.header'); ?>
+						<div class="actions-toolbar">
+							<div class="primary">
+								<button type="submit" class="action login btn btn-dark  btn-full" name="send" id="send2-had"><span><?php /* @escapeNotVerified */ echo __('Sign In') ?></span></button>
+							</div>
+							<div class="secondary">
+								<a class="action create primary" href="<?php /* @escapeNotVerified */ echo $block->getCreateAccountUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Create an account') ?></span></a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<?php endif ?>

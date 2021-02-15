@@ -1,0 +1,47 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales_order_status.grid.columnSet">
+                  <block class="Magento\Backend\Block\Widget\Grid\Column" name="sales_order_status.grid.columnSet.is_balleh" as="is_balleh" after="sales_order_status.grid.columnSet.is_default">
+                      <arguments>
+                          <argument name="header" xsi:type="string" translate="true">Is Ours</argument>
+                          <argument name="index" xsi:type="string">is_balleh</argument>
+                          <argument name="type" xsi:type="string">options</argument>
+                          <argument name="filter_index" xsi:type="string">main_table.is_balleh</argument>
+                          <argument name="width" xsi:type="string">200</argument>
+                          <argument name="visible" xsi:type="boolean">false</argument>
+                          <argument name="options" xsi:type="array">
+                              <item name="no" xsi:type="array">
+                                  <item name="value" xsi:type="string">0</item>
+                                  <item name="label" xsi:type="string" translate="true">No</item>
+                              </item>
+                              <item name="yes" xsi:type="array">
+                                  <item name="value" xsi:type="string">1</item>
+                                  <item name="label" xsi:type="string" translate="true">Yes</item>
+                              </item>
+                          </argument>
+                      </arguments>
+
+           </block>
+           <block class="Magento\Backend\Block\Widget\Grid\Column" name="sales_order_status.grid.columnSet.icon" as="icon" after="sales_order_status.grid.columnSet.state">
+               <arguments>
+                    <argument name="header" xsi:type="string" translate="true">Icon</argument>
+                    <argument name="index" xsi:type="string">icon</argument>
+                    <argument name="type" xsi:type="string">text</argument>
+                    <argument name="filter_index" xsi:type="string">main_table.icon</argument>
+                    <argument name="width" xsi:type="string">200</argument>
+                </arguments>
+           </block>
+           <block class="Magento\Backend\Block\Widget\Grid\Column" name="sales_order_status.grid.columnSet.sort_order" as="sort_order" after="sales_order_status.grid.columnSet.icon">
+               <arguments>
+                    <argument name="header" xsi:type="string" translate="true">Sort Order</argument>
+                    <argument name="index" xsi:type="string">sort_order</argument>
+                    <argument name="type" xsi:type="string">text</argument>
+                    <argument name="filter_index" xsi:type="string">main_table.sort_order</argument>
+                    <argument name="width" xsi:type="string">200</argument>
+                </arguments>
+           </block>
+         <!--<move element="sales_order_status.grid.columnSet.is_balleh" after="sales_order_status.grid.columnSet.is_default"/>-->
+
+        </referenceBlock>
+    </body>
+</page>

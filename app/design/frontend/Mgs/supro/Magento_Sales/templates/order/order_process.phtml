@@ -1,0 +1,80 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Sales\Block\Order\Info */ ?>
+
+<?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $order = $objectManager->create('Magento\Sales\Model\Order')->load($block->getOrder()->getId());
+    $tracksCollection = $order->getTracksCollection();
+    foreach ($tracksCollection->getItems() as $track) {
+      $shipper = "";
+      $link = "";
+      if($track->getTitle() == "aramex") {
+        $shipper = __("Your has been shipped with Aramex");
+        $link = "http://www.aramex.com/track/results?ShipmentNumber=";
+      } else {
+        $shipper = _("Your has been shipped with Alsaif Express");
+        $link = "#";
+      } ?>
+      <div class="track-shipment">
+        <h4><i class="fa fa-truck" aria-hidden="true"></i> <span><?php echo __("Track your order"); ?></span></h4>
+        <div class="tracking-number">
+          <span><?php echo $shipper; ?></span>
+          <a href="<?php echo $link . $track->getTrackNumber(); ?>" target="_blank"><?php echo $track->getTrackNumber(); ?></a>
+        </div>
+      </div>
+    <?php
+  }
+
+ ?>
+<?php
+$pending = "";
+$processing = "";
+$shipped = "";
+$delivered = "";
+$canceled = "";
+?>
+    <?php switch ($block->getOrder()->getStatus()) {
+      case 'pending':
+        $pending = "active";
+        break;
+      case 'processing':
+        $pending = "active";
+        $processing = "active";
+        break;
+      case 'complete':
+        $pending = "active";
+        $processing = "active";
+        $shipped = "active";
+        break;
+      case 'delivered':
+        $pending = "active";
+        $processing = "active";
+        $shipped = "active";
+        $delivered = "active";
+        break;
+      case 'canceled':
+        $canceled = "hide";
+        break;
+      default:
+        break;
+    } ?>
+
+<div class="order-process <?php echo $canceled ?>">
+  <div class="step <?php echo $pending ?>">
+    <span><?php echo __("Pending") ?></span>
+  </div>
+  <div class="step <?php echo $processing ?>">
+    <span><?php echo __("Processing") ?></span>
+  </div>
+  <div class="step <?php echo $shipped ?>">
+    <span><?php echo __("Shipped") ?></span>
+  </div>
+  <div class="step <?php echo $delivered ?>">
+    <span><?php echo __("Delivered") ?></span>
+  </div>
+</div>

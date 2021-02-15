@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="AlsaifGallery_HomeManager" setup_version="1.0.0"/>
+    <sequence>
+        <module name="Magento_Catalog"/>
+        <module name="Magento_Inventory"/>
+        <module name="Magento_InventoryApi"/>
+        <module name="AlsaifGallery_Category"/>
+        <module name="AlsaifGallery_Product"/>
+        <module name="AlsaifGallery_AppConfigurations"/>
+        <module name="Mageplaza_BannerSlider"/>
+    </sequence>
+</config>

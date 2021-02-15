@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="AlsaifGallery\Cart\Api\CartItemInterface"
+                type="AlsaifGallery\Cart\Model\CartItem"/>
+
+    <preference for="AlsaifGallery\Cart\Api\CouponManagementInterface"
+                type="AlsaifGallery\Cart\Model\CouponManagement"/>
+
+    <preference for="AlsaifGallery\Cart\Api\CartManagementInterface"
+                type="AlsaifGallery\Cart\Model\CartManagement"/>
+
+    <preference for="AlsaifGallery\Cart\Api\CartManagementInterface"
+                type="AlsaifGallery\Cart\Model\CartManagement"/>
+
+
+    <!-- <type name="Magento\Quote\Api\CartItemRepositoryInterface">
+      <plugin name="AlsaifGallery_Cart_Plugin_CartItemRepositoryInterface"
+              type="AlsaifGallery\Cart\Plugin\CartItemRepositoryInterface"
+       />
+    </type> -->
+
+    <type name="Magento\Quote\Model\Quote\Item\Repository">
+        <plugin name="stock" type="AlsaifGallery\Cart\Plugin\Stock" disabled="false" sortOrder="70"/>
+    </type>
+
+
+</config>

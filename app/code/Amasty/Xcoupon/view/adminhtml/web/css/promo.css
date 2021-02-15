@@ -1,0 +1,54 @@
+#sales-rule-form-tab-coupons .fieldset#amasty_generate_fieldset,
+#sales-rule-form-tab-coupons .fieldset#amasty_import_fieldset{
+    border-top: 1px solid #cac3b4;
+}
+
+#sales-rule-form-tab-coupons .fieldset#amasty_generate_fieldset .legend,
+#sales-rule-form-tab-coupons .fieldset#amasty_import_fieldset .legend{
+    padding: 1rem 0rem;
+    margin: 0;
+    border-bottom: 0;
+}
+
+#sales-rule-form-tab-coupons .amasty-expanded{
+    margin-bottom: 1rem;
+}
+
+#sales-rule-form-tab-coupons .fieldset#amasty_generate_fieldset{
+    border-bottom: 1px solid #cac3b4;
+}
+
+#sales-rule-form-tab-coupons .fieldset#amasty_generate_fieldset.amasty-expanded{
+    padding-bottom: 1rem !important;
+}
+
+#sales-rule-form-tab-coupons .fieldset#amasty_generate_fieldset .legend span,
+#sales-rule-form-tab-coupons .fieldset#amasty_import_fieldset .legend span{
+    padding: 7px 0px;
+}
+
+#amasty_generate_fieldset>.field,
+#amasty_import_fieldset>.field{
+    display: none;
+}
+
+.amasty-xcoupon-expand-fieldset{
+    cursor: pointer;
+    padding: 0 !important;
+}
+
+#coupons_information_fieldset{
+    cursor: pointer;
+}
+
+#sales-rule-form-tab-coupons .admin__fieldset{
+    padding-top: 0;
+}
+
+.amasty-xcoupon-coupon-main-fieldset .admin__fieldset{
+    padding-top: 0;
+}
+
+#coupons_information_fieldset .legend{
+    border-bottom: 0;
+}

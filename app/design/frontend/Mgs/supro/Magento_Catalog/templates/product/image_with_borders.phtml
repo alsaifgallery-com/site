@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Catalog\Block\Product\Image */ ?>
+
+<?php 
+	$themeHelperImage = $this->helper('MGS\ThemeSettings\Helper\Image'); 
+	$themeHelperConfig = $this->helper('MGS\ThemeSettings\Helper\Config'); 
+	$product = $block->getProduct();
+?>
+<?php 
+	$themeHelperImage->init($product, 'category_page_grid');
+	$imageProduct = $themeHelperImage->init($product, 'category_page_grid')->getUrl();
+	$productImageHover = $themeHelperImage->init($product, 'product_base_image')->getUrl();
+?>
+<?php
+	$themeSettingConfig = $this->helper('MGS\ThemeSettings\Helper\Config');
+	$lazyLoad = $themeSettingConfig->getStoreConfig('themesettings/general/lazy_load');
+	$hoverChangeImage = $themeSettingConfig->getStoreConfig('themesettings/catalog/hover_change');
+?>
+<?php if($lazyLoad): ?>
+	<span class="product-image-container">
+		<span class="parent_lazy product-image-wrapper"
+			  style="padding-bottom: <?php /* @escapeNotVerified */ echo ($themeHelperImage->getRatio() * 100); ?>%;">
+			<img class="product-image-photo lazy"
+				 <?php /* @escapeNotVerified */ echo $block->getCustomAttributes(); ?>
+				 src="<?= $themeSettingConfig->getImageLazyLoad() ?>"
+				 data-src="<?php /* @escapeNotVerified */ echo $imageProduct; ?>"
+				 alt="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getLabel(), null, true); ?>"/>
+			<?php if ($hoverChangeImage) : ?>
+				<?php if(basename($product->getData('image')) != basename($product->getData('small_image'))): ?>
+					<img class="product-image-photo lazy img-hover-show"
+					 <?php /* @escapeNotVerified */ echo $block->getCustomAttributes(); ?>
+					 src="<?= $themeSettingConfig->getImageLazyLoad() ?>"
+					 data-src="<?php /* @escapeNotVerified */ echo $productImageHover; ?>"
+					 alt="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getLabel(), null, true); ?>"/>
+				<?php endif; ?>
+			<?php endif; ?>
+		</span>
+	</span>
+<?php else: ?>
+	<span class="product-image-container">
+		<span class="product-image-wrapper"
+			  style="padding-bottom: <?php /* @escapeNotVerified */ echo ($themeHelperImage->getRatio() * 100); ?>%;">
+			<img class="product-image-photo"
+				 <?php /* @escapeNotVerified */ echo $block->getCustomAttributes(); ?>
+				 src="<?php /* @escapeNotVerified */ echo $imageProduct; ?>"
+				 alt="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getLabel(), null, true); ?>"/>
+			<?php if ($hoverChangeImage) : ?>
+				<?php if(basename($product->getData('image')) != basename($product->getData('small_image'))): ?>
+					<img class="product-image-photo img-hover-show"
+					 <?php /* @escapeNotVerified */ echo $block->getCustomAttributes(); ?>
+					 src="<?php /* @escapeNotVerified */ echo $productImageHover; ?>"
+					 alt="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getLabel(), null, true); ?>"/>
+				<?php endif; ?>
+			<?php endif; ?>	
+		</span>
+	</span>
+<?php endif ?>
+

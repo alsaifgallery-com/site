@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Language switcher template
+ */
+?>
+
+<?php if (count($block->getStores())>1):
+	$id = $block->getIdModifier() ? '-' . $block->getIdModifier() : ''?>
+	<div class="switcher language switcher-language" data-ui-id="language-switcher" id="switcher-language<?php /* @escapeNotVerified */ echo $id?>">
+                        <?php foreach ($block->getStores() as $_lang): ?>
+
+					<?php if ($_lang->getId() != $block->getCurrentStoreId()): ?>
+						<?php
+						$objectManager =  \Magento\Framework\App\ObjectManager::getInstance();
+						$_postDataHelper =  $objectManager->get('\Magento\Framework\Data\Helper\PostHelper');
+						$data[\Magento\Store\Api\StoreResolverInterface::PARAM_NAME] = $_lang->getCode();
+						$_urlStrore = $_lang->getCurrentUrl(false);
+						$posCode = strpos($_urlStrore, '?'.\Magento\Store\Api\StoreResolverInterface::PARAM_NAME);
+						if ($posCode !== false) {
+							$_urlStrore = substr($_urlStrore,0,$posCode).'?'.\Magento\Store\Api\StoreResolverInterface::PARAM_NAME.'='.$_lang->getCode();
+						}
+						$postData= $_postDataHelper->getPostData(
+							$_urlStrore,
+							$data
+						);
+					?>
+						<div class="view-<?php echo $block->escapeHtml($_lang->getCode()); ?> switcher-option">
+							<a data-storecode="<?php echo $_lang->getCode();?>" style="" href="#" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($_lang) ?>'>
+								<?php echo $block->escapeHtml($_lang->getName()) ?>
+	            			</a>
+						</div>
+					<?php endif; ?>
+				<?php endforeach; ?>
+	</div>
+<?php endif; ?>

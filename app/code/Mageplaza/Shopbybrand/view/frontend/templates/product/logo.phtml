@@ -1,0 +1,84 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Shopbybrand
+ * @copyright   Copyright (c) 2017 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+<?php if ($brand = $block->getProductBrand()): ?>
+    <div class="product-brand-logo">
+        <a href="<?php echo $block->helper()->getBrandUrl($brand) ?>">
+            <img src="<?php echo $block->helper()->getBrandImageUrl($brand) ?>" title="<?php echo $brand->getValue() ?>" alt="<?php echo $brand->getValue() ?>">
+        </a>
+    </div>
+<?php endif; ?>
+
+<?php
+/*
+$pid = $block->getProductBrand()->getId(); 
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$product = $objectManager->get('Magento\Catalog\Model\Product')->load($pid);
+$x = 0;
+$_attribute = array();
+
+echo 'size'.$product->getData('size');
+
+if($product->getData('size')) {
+	$_attribute[$x]['value'] = $product->getAttributeText('size');
+	$_attribute[$x]['label'] = $product->getResource()->getAttribute('size')->getStoreLabel();
+	$x=$x+1;
+}
+
+if($product->getData('count')) {
+	$_attribute[$x]['value'] = $product->getAttributeText('count');
+	$_attribute[$x]['label'] = $product->getResource()->getAttribute('count')->getStoreLabel();
+	$x=$x+1;
+}
+
+if($product->getData('color')) {
+	$_attribute[$x]['value'] = $product->getAttributeText('color');
+	$_attribute[$x]['label'] = $product->getResource()->getAttribute('color')->getStoreLabel();
+	$x=$x+1;
+}
+
+if($product->getData('suitable_for')) {
+	$sf = $product->getAttributeText('suitable_for');
+	$_attribute[$x]['value'] = is_array($sf) ? implode(",", $sf) : $sf;
+	$_attribute[$x]['label'] = $product->getResource()->getAttribute('suitable_for')->getStoreLabel();
+	$x=$x+1;
+}
+
+
+var_dump($_attribute);
+
+
+
+if($x){
+	$echo_str = '<div class="all_attributes">';
+	foreach($_attribute as $attrib) {
+		if($attrib['value']){
+			$echo_str .= '<div class="atr_label"> <span class="label">'.$attrib['label'].': </span>';
+			$echo_str .= '<span class="value">'.$attrib['value'].'</span></div>';
+		}	
+	}	
+	$echo_str .= '</div>';
+	
+	echo $echo_str;
+}	*/
+
+?>

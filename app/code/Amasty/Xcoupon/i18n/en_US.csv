@@ -1,0 +1,40 @@
+Back,Back
+"Coupon Qty","Coupon Qty"
+"Delete Existing Coupons","Delete Existing Coupons"
+Template,Template
+"<b>L</b> - letter, <b>D</b> - digit<br/>e.g. PROMO_LLDDD results in PROMO_DF627","<b>L</b> - letter, <b>D</b> - digit<br/>e.g. PROMO_LLDDD results in PROMO_DF627"
+Generate,Generate
+"Uses per Coupon","Uses per Coupon"
+"Uses per Customer","Uses per Customer"
+Edit,Edit
+"CSV File","CSV File"
+"CSV File Structure: Coupon Code *, Created, Uses, Times Used, Uses per Customer, Uses per Coupon, Expiration date <br/> Each coupon code on a new line <br/>* - mandatory","CSV File Structure: Coupon Code *, Created, Uses, Times Used, Uses per Customer, Uses per Coupon, Expiration date <br/> Each coupon code on a new line <br/>* - mandatory"
+Import,Import
+"Rule is not defined","Rule is not defined"
+"Invalid data provided","Invalid data provided"
+"%1 coupon(s) have been generated.","%1 coupon(s) have been generated."
+"Something went wrong while generating coupons. Please review the log and try again.","Something went wrong while generating coupons. Please review the log and try again."
+"No import file chosen","No import file chosen"
+"Import has been done.","Import has been done."
+"The wrong rule is specified.","The wrong rule is specified."
+"Usage Report","Usage Report"
+"This coupon no longer exists.","This coupon no longer exists."
+"Edit Coupon #","Edit Coupon #"
+"The coupon is saved.","The coupon is saved."
+"Something went wrong while saving the coupon data.","Something went wrong while saving the coupon data."
+"The ""%1"" must be completed","The ""%1"" must be completed"
+"The pattern must be set up.","The pattern must be set up."
+"The rule must be set up.","The rule must be set up."
+"Generate Coupons","Generate Coupons"
+View,View
+"Amasty: Coupon Usage Report","Amasty: Coupon Usage Report"
+"Coupon Usage Report","Coupon Usage Report"
+"Coupon Code","Coupon Code"
+"Coupon Information","Coupon Information"
+"Rule Name","Rule Name"
+Coupon,Coupon
+"Track Number","Track Number"
+"Order #","Order #"
+G.T.(Purchased),G.T.(Purchased)
+Status,Status
+"Purchased On","Purchased On"

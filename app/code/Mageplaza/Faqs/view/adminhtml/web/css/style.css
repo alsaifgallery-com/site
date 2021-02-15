@@ -1,0 +1,88 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+#article_statistic_fieldset {
+    padding-bottom: 10px;
+}
+
+#article-statistic {
+    width: 90%;
+    margin: auto;
+}
+
+.article-statistic--attribute {
+    float: left;
+    width: 20%;
+    padding: 8px 15px 2px 15px;
+    margin-left: 10px;
+}
+
+.article-statistic--attribute strong {
+    color: #ffffff;
+}
+
+.article-statistic--attribute span {
+    color: #ffffff;
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.article-statistic__views {
+    background-color: #2da9f2;
+}
+
+.article-statistic__actions {
+    background-color: #e51365;
+}
+
+.article-statistic__positives {
+    background-color: #fcc12a;
+}
+
+.article-statistic__negatives {
+    background-color: #1e9788;
+}
+
+#article_email_notify {
+    margin-top: 8px;
+}
+#icon-note {
+    float: left;
+    width: 30px;
+    height: 20px;
+    position: relative;
+}
+#category-icon-image i {
+    font-size: 22px;
+}
+
+#category_icon {
+    width: 35%;
+    float: left;
+    margin-right: 15px;
+}
+#category-icon-image img{
+    position: absolute;
+    top: -8px;
+    right: 0;
+    max-width: unset;
+    display: none;
+}

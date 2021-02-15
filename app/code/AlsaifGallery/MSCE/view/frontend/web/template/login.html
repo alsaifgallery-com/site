@@ -1,0 +1,115 @@
+<!--Use 'stepCode' as id attribute-->
+<li data-bind="fadeVisible: isVisible, attr: { id: stepCode }">
+  <div id="checkout-step-title" class="step-content" data-role="content">
+    <!-- Social Login Starts -->
+    <div class="amsl-login-page">
+      <div class="amsl-social-wrapper">
+        <div class="amsl-social-login -labeled-buttons">
+          <p class="amsl-error -social" data-am-js="am-social-error"></p>
+          <span class="amsl-title -short" data-bind="i18n: 'Login with'"></span>
+          <div class="amsl-buttons" data-amslogin="button-wrap">
+            <div class="amsl-button-wrapper -rectangular with-label">
+              <a class="amsl-button -google" href="https://alsaifgallery.com/amsociallogin/social/login/?type=google" title="Sign in with Google">
+                <span class="amsl-social-icon"></span>
+                <span class="amsl-text" data-bind="i18n: 'Continue with Google'"></span>
+              </a>
+            </div>
+            <div class="amsl-button-wrapper -rectangular with-label">
+              <a class="amsl-button -facebook" href="https://alsaifgallery.com/amsociallogin/social/login/?type=facebook" title="Sign in with Facebook">
+                <span class="amsl-social-icon"></span>
+                <span class="amsl-text" data-bind="i18n: 'Continue with Facebook'"></span>
+              </a>
+            </div>
+            <div class="amsl-button-wrapper -rectangular with-label">
+              <a class="amsl-button -apple" href="https://alsaifgallery.com/amsociallogin/social/login/?type=apple" title="Sign in with Apple">
+                <span class="amsl-social-icon"></span>
+                <span class="amsl-text" data-bind="i18n: 'Continue with Apple'"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Social Login Ends -->
+    <div data-bind="if: !isLogedIn">
+      <div id="login-form" class="block-content" aria-labelledby="block-customer-login-heading">
+        <div class="step-title" data-bind="i18n: stepTitle" data-role="title"></div>
+        <form data-role="login" data-bind="submit:login" method="post">
+          <div class="fieldset" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+            <div class="field field-email required">
+              <label class="label" for="customer-email">
+                <span data-bind="i18n: 'Email Address'"></span>
+              </label>
+              <div class="control">
+                <input type="email" class="input-text" id="login-email" name="username" data-bind="attr: {autocomplete: autocomplete}" data-validate="{required:true, 'validate-email':true}" />
+              </div>
+            </div>
+            <div class="field field-password required">
+              <label for="login-password" class="label"><span data-bind="i18n: 'Password'"></span></label>
+              <div class="control">
+                <input type="password" class="input-text" id="login-password" name="password" data-bind="attr: {autocomplete: autocomplete}" data-validate="{required:true}" autocomplete="off" />
+              </div>
+            </div>
+            <div class="actions-toolbar">
+              <input name="context" type="hidden" value="checkout" />
+              <div class="primary">
+                <button type="submit" class="action action-login secondary"><span data-bind="i18n: 'Sign In'"></span></button>
+              </div>
+              <div class="secondary">
+                <a class="action action-remind" data-bind="attr: { href: forgotPasswordUrl }">
+                  <span data-bind="i18n: 'Forgot Your Password?'"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="alternative-form">
+          <span data-bind="i18n: 'You dont have an account? signup' , click: displayRegisterForm"></span>
+        </div>
+      </div>
+      <div id="register-form" class="block-content register-form" aria-labelledby="block-customer-register-heading">
+        <div class="step-title" data-bind="i18n: 'Register'" data-role="title"></div>
+        <form data-role="register" data-bind="submit:create" method="post">
+          <div class="fieldset" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+            <div class="field field-name required">
+              <label class="label" for="full-name">
+                <span data-bind="i18n: 'Full name'"></span>
+              </label>
+              <div class="control">
+                <input type="text" class="input-text" id="full-name" name="fullname" data-bind="attr: {autocomplete: autocomplete}" data-validate="{required:true}" />
+              </div>
+            </div>
+            <div class="field field-email required">
+              <label class="label" for="customer-email">
+                <span data-bind="i18n: 'Email Address'"></span>
+              </label>
+              <div class="control">
+                <input type="email" class="input-text" id="login-email" name="username" data-bind="attr: {autocomplete: autocomplete}" data-validate="{required:true, 'validate-email':true}" />
+              </div>
+            </div>
+            <div class="field field-password required">
+              <label for="login-password" class="label"><span data-bind="i18n: 'Password'"></span></label>
+              <div class="control">
+                <input type="password" class="input-text" id="login-password" name="password" data-bind="attr: {autocomplete: autocomplete}" data-validate="{required:true}" autocomplete="off" />
+              </div>
+            </div>
+            <div class="actions-toolbar">
+              <input name="context" type="hidden" value="checkout" />
+              <div class="primary">
+                <button type="submit" class="action action-login secondary"><span data-bind="i18n: 'Sign up'"></span></button>
+              </div>
+              <div class="secondary">
+                <a class="action action-remind" data-bind="attr: { href: forgotPasswordUrl }">
+                  <span data-bind="i18n: 'Forgot Your Password?'"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="alternative-form">
+          <span data-bind="i18n: 'Already a customer? Login' , click: displayLoginForm"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>

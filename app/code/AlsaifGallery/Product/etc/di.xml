@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--<preference for="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider" type="AlsaifGallery\Productsgrid\Ui\DataProvider\Product\ProductDataProvider" />-->
+    
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+      <plugin name="AlsaifGallery_Product_Plugin_productforMobile" 
+              type="AlsaifGallery\Product\Plugin\ProductRepository" 
+       />
+    </type>
+    
+    <!--  <type name="Magento\Catalog\Api\ProductLinkRepositoryInterface">
+      <plugin name="AlsaifGallery_Product_Plugin_ProductLinkRepository" 
+              type="AlsaifGallery\Product\Plugin\ProductLinkRepository" 
+       />
+    </type> --> 
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="AlsaifGallery_cart_Plugin_itemsforMobile" type="AlsaifGallery\Product\Plugin\QuoteRepository" sortOrder="10" disabled="true" />
+    </type>
+    
+    <preference for="AlsaifGallery\Product\Adapters\BrandAdapterInterface" 
+                type="AlsaifGallery\Product\Adapters\BrandAdapter"/>
+    
+    <preference for="AlsaifGallery\Product\Api\Data\SpecificationsInterface" 
+                type="AlsaifGallery\Product\Model\Data\Specifications"/>
+    
+    <preference for="AlsaifGallery\Product\Api\ProductBarcodetInterface" 
+                type="AlsaifGallery\Product\Model\ProductBarcodetMangement"/>
+
+    
+    
+        
+    <!--ProductListingInterface-->
+    <preference for="AlsaifGallery\Product\Api\Data\FilterItemInterface" 
+                type="AlsaifGallery\Product\Model\Data\FilterItem"/>
+    
+    <preference for="AlsaifGallery\Product\Api\Data\FilterListInterface" 
+                type="AlsaifGallery\Product\Model\Data\FilterList"/>
+    
+    <preference for="AlsaifGallery\Product\Api\ProductListingInterface" 
+                type="AlsaifGallery\Product\Model\ProductListingMangement"/>
+        
+    
+</config>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="AlsaifGallery\RestAPIConfig\Api\VerifyCodeManagementInterface" type="AlsaifGallery\RestAPIConfig\Model\VerifyCodeManagement"/>
+	<preference for="AlsaifGallery\RestAPIConfig\Api\GetCodeManagementInterface" type="AlsaifGallery\RestAPIConfig\Model\GetCodeManagement"/>
+	<preference for="AlsaifGallery\RestAPIConfig\Api\PhoneVerifyManagementInterface" type="AlsaifGallery\RestAPIConfig\Model\PhoneVerifyManagement"/>
+</config>

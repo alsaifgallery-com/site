@@ -1,0 +1,122 @@
+<?php
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_Popup
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2018-2019 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+use Bss\Popup\Model\Source\Position;
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Block
+ *
+ * @var $block \Bss\Popup\Block\Ajax
+ */
+$helper = $block->getHelper();
+$popup = $block->getPopup();
+if (!empty($popup)) {
+    $flagTop = ($popup['position'] <= Position::TOP_RIGHT)? "true" : "false";
+    $flagRight = (($popup['position'] == Position::TOP_RIGHT) ||
+                    ($popup['position'] == Position::MIDDLE_RIGHT))? 
+                    "float:right;": "";
+    $flagLeft = (($popup['position'] == Position::TOP_LEFT) ||
+                    ($popup['position'] == Position::MIDDLE_LEFT))? 
+                    "margin: 0 0;": "";
+}
+$postUrl = $block->getBaseUrl().'popup/update/displayed';
+?>
+<?php if (!empty($popup)): ?>
+    <?php if ($popup['popup_css']):?>
+    <style type="text/css">
+        <?php echo $popup['popup_css'] ?>
+    </style>
+    <?php endif; ?>
+    <div class="popup_wrapper mfp-with-anim" style="
+    <?php if ($flagLeft === "" && $flagRight === "") {
+        echo "margin:auto";
+    } else {
+        echo $flagRight. $flagLeft ;
+    }?>">
+        <div class="popup_content">
+            <?php echo $block->filterContent($popup['popup_content']) ?>
+        </div>
+    </div>
+    <script type="text/x-magento-init">
+        {
+        "*": 
+            {
+                "Bss_Popup/js/initpopup": {
+                    "popupId": <?php echo $popup['popup_id'] ?>,
+                    "popupIsAllowedDisplay": <?php echo $helper->popupIsAllowedDisplay($popup) ?>,
+                    "eventDisplay": <?php echo $popup['event_display'] ?>,
+                    "hideAfter": <?php echo $popup['hide_after'] ?>,
+                    "effectDisplay": <?php echo $popup['effect_display'] ?>,
+                    "afterLoad": <?php echo $popup['after_load'] ?>,
+                    "afterScroll": <?php echo $popup['after_scroll'] ?>,
+                    "popupPages": <?php echo $popup['page_view'] ?>,
+                    "pagesViewed": <?php echo $block->getPagesViewed() ?>,
+                    "animation": "<?php echo $block->getAnimation($popup) ?>",
+                    "updateUrl": "<?php echo $postUrl ?>",
+                    "flagTop": <?php echo $flagTop ?>
+                }
+            }
+        }
+    </script>
+<?php endif; ?>
+<?php if ($block->checkBssAjaxCartInstall()): ?>
+    <?php
+    $isEnable = $helper->isAjaxCartBssEnable();
+    $addUrl = $block->getUrl('ajaxcart');
+    $quickview = 'false';
+    $isProductView = 'false';
+
+    if ($block->getRequest()->getModuleName() == 'ajaxcart') {
+        $quickview = 'true';
+        $isProductView = 'true';
+    }
+
+    if ($block->getRequest()->getFullActionName() == 'catalog_product_view') {
+        $isProductView = 'true';
+    }
+
+    
+
+    if ($isProductView == 'true' && !$helper->isEnabledProductView()) {
+        $isEnable = false;
+    }
+
+    if ($block->getRequest()->getFullActionName() == 'checkout_cart_index'
+        || $block->getRequest()->getFullActionName() == 'wishlist_index_index'
+        || $block->getRequest()->getFullActionName() == 'checkout_cart_configure') {
+        $isEnable = false;
+    }
+    ?>
+
+    <?php if ($isEnable) :?>
+        <script type="text/x-magento-init">
+        {
+            "body": {
+                "bssAjaxCart": {
+                    "addUrl": "<?php echo $block->escapeUrl($addUrl); ?>",
+                    "quickview": <?php echo $block->escapeJsQuote($quickview); ?>,
+                    "isProductView": <?php echo $block->escapeJsQuote($isProductView); ?>,
+                    "quickViewUrl": "<?php echo $block->escapeUrl($block->getUrl('ajaxcart/index/view')); ?>",
+                    "addToCartSelector": "<?php echo $block->escapeJsQuote($helper->getAddToCartSelector()); ?>"
+                }
+            }
+        }
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

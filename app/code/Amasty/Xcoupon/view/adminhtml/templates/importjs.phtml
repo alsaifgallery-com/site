@@ -1,0 +1,67 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Xcoupon
+ */
+?>
+<script>
+require([
+    'jquery',
+    "uiRegistry",
+    'Magento_Ui/js/modal/alert',
+    'prototype'
+], function(jQuery, registry, alert) {
+
+function amastyXcouponImport(ruleId, url, grid)
+{
+    var formData = new FormData();
+    formData.append('file', jQuery('#amasty_xcoupon_file').prop('files')[0]);
+    formData.append('form_key', FORM_KEY);
+    formData.append('rule_id', ruleId);
+    formData.append('clean', jQuery('#amasty_xcoupon_delete_existing_coupons').val());
+
+    var couponCodesGrid = eval(grid);
+
+    jQuery.ajax({
+        url: url,
+        dataType: 'json',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: formData,
+        type: 'post',
+        showLoader: true,
+        success: function(response){
+            if (response && response.messages) {
+                alert({
+                    content: response.messages
+                });
+
+                if (couponCodesGrid) {
+                    couponCodesGrid.reload();
+                }
+            }
+            if (response && response.error) {
+                alert({
+                    content: response.error
+                });
+            }
+        }
+    });
+}
+
+jQuery("body").on("click", "#amasty_import_fieldset legend", function(){
+    var fieldset = jQuery(this).closest('fieldset');
+
+    if (fieldset.hasClass('amasty-expanded')) {
+        fieldset.removeClass('amasty-expanded');
+    } else {
+        fieldset.addClass('amasty-expanded');
+    }
+    fieldset.find('.field').toggle(500);
+});
+
+window.amastyXcouponImport = amastyXcouponImport;
+});
+</script>

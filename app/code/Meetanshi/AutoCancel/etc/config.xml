@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <admin_autocancel>
+            <general>
+                <admin_email>1</admin_email>
+                <customer_email>1</customer_email>
+                <email_template>admin_autocancel_general_email_template</email_template>
+                <customer_email_template>admin_autocancel_general_customer_email_template</customer_email_template>
+            </general>
+        </admin_autocancel>
+    </default>
+</config>

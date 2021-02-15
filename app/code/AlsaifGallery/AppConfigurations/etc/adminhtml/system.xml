@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="appconfigurations_setting" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+
+            <label>App Configurations</label>
+            <tab>alsaifgallery</tab>
+            <resource>AlsaifGallery_AppConfigurations::config_alsaifgallery_appconfigurations</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="appconfigurations" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Config</label>
+                    <source_model>AlsaifGallery\AppConfigurations\Model\Config\Source\ConfigList</source_model>
+                </field>
+
+            </group>
+             <group id="configs" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Configs</label>
+                <field id="sociallogin" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Social Login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="facebookusername" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Facbook Username</label>
+                   <comment></comment>
+                </field>
+                 <field id="twitterusername" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Twitter Username</label>
+                   <comment></comment>
+                </field>
+                <field id="instagramusername" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Instagram Username</label>
+                   <comment></comment>
+                </field>
+                 <field id="appcontactnumber" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>App Contact Number</label>
+                   <comment></comment>
+                </field>
+                 <field id="base_color" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Base Color</label>
+                    <comment><![CDATA[Base color]]></comment>
+                    <frontend_model>AlsaifGallery\AppConfigurations\Block\Color</frontend_model> <!-- Our block for attaching color picker to text box -->
+                </field>
+                <field id="terms_of_use_url" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Terms Of Use Url</label>
+                   <source_model>AlsaifGallery\AppConfigurations\Model\Config\Source\PageList</source_model>
+
+                </field>
+                <field id="privacy_policy_url" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Privacy Policy Url</label>
+                   <source_model>AlsaifGallery\AppConfigurations\Model\Config\Source\PageList</source_model>
+                </field>
+                 <field id="vat_url" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>VAT Url</label>
+                   <source_model>AlsaifGallery\AppConfigurations\Model\Config\Source\PageList</source_model>
+                </field>
+                <field id="homecategorieslimit" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Home Categories Limit</label>
+                    <validate>validate-number</validate>
+                   <comment></comment>
+                </field>
+                 <field id="homeproductslimit" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Home Products Limit</label>
+                    <validate>validate-number</validate>
+                   <comment></comment>
+                </field>
+                <field id="homebrandslimit" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Home Brands Limit</label>
+                    <validate>validate-number</validate>
+                   <comment></comment>
+                </field>
+                <field id="category_image_placeholder" translate="label" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Image Placeholder</label>
+                    <!-- Backend model which saves uploaded files on a defined directory path -->
+                    <backend_model>AlsaifGallery\AppConfigurations\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">blog/post4</base_url>
+                    <!-- Comment about allowed extensions of uploaded files which are defined in the backend model -->
+                    <comment><![CDATA[Allowed file types: jpg, jpeg, gif, png, svg]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

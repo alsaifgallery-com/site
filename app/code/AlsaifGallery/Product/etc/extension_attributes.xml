@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="brand" type="string"/>
+        <attribute code="brand_image" type="string"/>
+        <attribute code="brand_option_id" type="string"/>
+        <attribute code="url_base" type="string"/>           
+        <attribute code="description" type="string"/>
+        <attribute code="sale_price" type="string"/>
+        <attribute code="sale_percent" type="string"/>
+        <attribute code="onsale_enabled" type="string"/>
+        <attribute code="short_description" type="string"/>
+        <attribute code="configurable_options" type="string"/>
+        <attribute code="specifications" type="AlsaifGallery\Product\Api\Data\SpecificationsInterface[]"/>
+        <attribute code="thumbnail" type="string"/>
+        <attribute code="is_cart_product" type="bool"/>
+             
+    </extension_attributes> 
+    <extension_attributes for="Magento\Quote\Api\Data\CartItemInterface">
+        <attribute code="brand" type="string"/>
+        <attribute code="brand_image" type="string"/>
+        <attribute code="url_base" type="string"/>           
+        <attribute code="thumbnail" type="string"/>
+             
+    </extension_attributes> 
+        
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductLinkInterface">
+        <attribute code="sku" type="string"/>
+        <attribute code="brand" type="string"/>
+        <attribute code="brand_image" type="string"/>
+        <attribute code="name" type="string"/>
+        <attribute code="price" type="string"/>
+        <attribute code="sale_price" type="string"/>
+        <attribute code="sale_percent" type="string"/>
+        <attribute code="onsale_enabled" type="string"/>
+        <attribute code="Type_id" type="string"/>
+        <attribute code="image" type="string"/>
+        <attribute code="is_wishlist_product" type="bool"/>
+        <attribute code="is_cart_product" type="bool"/>
+        <attribute code="specifications" type="AlsaifGallery\Product\Api\Data\SpecificationsInterface[]"/>
+        <attribute code="description" type="string"/>
+        <attribute code="thumbnail" type="string"/>
+        <attribute code="reviews" type="Ipragmatech\Ipreview\Api\ReviewInterface[]"/>
+             
+    </extension_attributes> 
+</config>

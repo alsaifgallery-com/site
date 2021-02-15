@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="faqs" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>FAQs</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_Faqs::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select <b>Yes</b> to enable FAQ page.]]></comment>
+                </field>
+                <field id="faq_color" translate="label comment" type="text" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Choose FAQ's color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                </field>
+                <field id="is_show_helpful" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow Voting For Helpfulness</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select <b>Yes</b> to allow selected group(s) below to vote for helpfulness.]]></comment>
+                </field>
+                <field id="rating_restrict" translate="label comment" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Restrict Rating for</label>
+                    <source_model>Magento\Customer\Model\ResourceModel\Group\Collection</source_model>
+                    <comment><![CDATA[Select customer group(s) allowed to vote for helpfulness.]]></comment>
+                    <depends>
+                        <field id="is_show_helpful">1</field>
+                    </depends>
+                </field>
+                <group id="question" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Question Config</label>
+                    <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Allow Guests To Ask Questions</label>
+                        <source_model>Mageplaza\Faqs\Model\Config\Source\System\AddQuestion</source_model>
+                    </field>
+                    <field id="max_char" translate="label comment" type="text" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1">
+                        <label>Question maximum character</label>
+                        <validate>validate-digits</validate>
+                        <comment><![CDATA[The maximum number of characters of each question.]]></comment>
+                    </field>
+                    <field id="need_approved" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Need Admin's Approved</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Select <b>Yes</b> to require approval from admins to publish a question.]]></comment>
+                    </field>
+                    <field id="name_field" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>The Name Field is </label>
+                        <source_model>Mageplaza\Faqs\Model\Config\Source\System\AddField</source_model>
+                    </field>
+                    <field id="email_field" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>The Email Field is</label>
+                        <source_model>Mageplaza\Faqs\Model\Config\Source\System\AddField</source_model>
+                    </field>
+                    <field id="show_notification" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show Email Notification checkbox</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <depends>
+                            <field id="add_email_field" separator="|">1|2</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="question_detail_page" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Question Details Page Config</label>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enabled Question Details Page</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Select <b>Yes</b>, a "Read More" link will be displayed to view full details on a question details page.]]></comment>
+                    </field>
+                    <field id="max_char" translate="label comment" type="text" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1">
+                        <label>Short answer maximum character</label>
+                        <validate>validate-digits</validate>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                        <comment><![CDATA[The maximum number of characters of a short answer.]]></comment>
+                    </field>
+                    <field id="layout" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Detail Page Layout</label>
+                        <source_model>Mageplaza\Faqs\Model\Config\Source\System\PageLayout</source_model>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="search_box" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Search Box Config</label>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enabled Search Box</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Select <b>Yes</b>, to enable search box.]]></comment>
+                    </field>
+                    <field id="title" translate="label comment" type="text" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1">
+                        <label>Search Box Title</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                        <comment><![CDATA[The search box's title.]]></comment>
+                    </field>
+                    <field id="description" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Search Box Description</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                        <comment><![CDATA[The search box's description.]]></comment>
+                    </field>
+                </group>
+            </group>
+            <group id="faq_home_page" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>FAQ Home Page Configuration</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select <b>Yes</b> to enable FAQ Home page.]]></comment>
+                </field>
+                <field id="route" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Route</label>
+                    <comment><![CDATA[If <b>Empty</b> the FAQ Home page will be disabled.]]></comment>
+                </field>
+                <field id="link" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Insert FAQ link on</label>
+                    <source_model>Mageplaza\Faqs\Model\Config\Source\System\LinkPosition</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Title</label>
+                </field>
+                <field id="layout" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Layout</label>
+                    <source_model>Mageplaza\Faqs\Model\Config\Source\System\PageLayout</source_model>
+                </field>
+                <field id="design_style" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>FAQ style</label>
+                    <source_model>Mageplaza\Faqs\Model\Config\Source\System\DesignStyle</source_model>
+                </field>
+                <field id="category_column" translate="label" type="select" sortOrder="80" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Categories columns</label>
+                    <source_model>Mageplaza\Faqs\Model\Config\Source\System\CategoryColumn</source_model>
+                </field>
+                <field id="question_style" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Question style</label>
+                    <source_model>Mageplaza\Faqs\Model\Config\Source\System\QuestionStyle</source_model>
+                </field>
+                <field id="limit_question" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Limit question per category</label>
+                </field>
+                <group id="seo" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SEO Config</label>
+                    <field id="meta_title" translate="label comment" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1">
+                        <label>Meta Title</label>
+                        <comment><![CDATA[Enter the meta title for FAQ homepage.]]></comment>
+                    </field>
+                    <field id="meta_description" translate="label comment" type="text" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1">
+                        <label>Meta Description</label>
+                        <comment><![CDATA[Enter the meta description for FAQ homepage.]]></comment>
+                    </field>
+                    <field id="meta_keyword" translate="label comment" type="text" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1">
+                        <label>Meta Keyword</label>
+                        <comment><![CDATA[Enter the meta keyword for FAQ homepage.]]></comment>
+                    </field>
+                    <field id="meta_robot" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Robots</label>
+                        <source_model>Magento\Config\Model\Config\Source\Design\Robots</source_model>
+                    </field>
+                </group>
+            </group>
+            <group id="product_tab" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Tab Configuration</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select <b>Yes</b> to show FAQ on Product tabs.]]></comment>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tab Title</label>
+                </field>
+                <field id="limit_question" translate="label" type="text" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Limit question</label>
+                    <validate>validate-digits</validate>
+                </field>
+                <field id="design_style" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>FAQ style</label>
+                    <source_model>Mageplaza\Faqs\Model\Config\Source\System\DesignStyle</source_model>
+                </field>
+                <field id="question_style" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Question style</label>
+                    <source_model>Mageplaza\Faqs\Model\Config\Source\System\QuestionStyle</source_model>
+                </field>
+                <field id="show_name" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Name</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_date" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Date of Question/Answer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="show_name">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="term_condition" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><![CDATA[Terms & Conditions]]></label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Show Terms & Conditions when submitting questions]]></label>
+                    <source_model>Mageplaza\Faqs\Model\Config\Source\System\AddTerm</source_model>
+                </field>
+                <field id="popup_label" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link popup label</label>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <comment><![CDATA[Enter the title of Terms & Conditions.]]></comment>
+                </field>
+                <field id="content" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Content</label>
+                    <comment><![CDATA[Enter the content of Terms & Conditions.]]></comment>
+                </field>
+            </group>
+            <group id="email" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Configuration</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Avoid send email to spam box, you should install <a href="https://www.mageplaza.com/magento-2-smtp/">SMTP</a>]]></comment>
+                </field>
+                <group id="customer" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email to Customer</label>
+                    <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Send an email to a customer when an answer is added</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="sender" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Sender</label>
+                        <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    </field>
+                    <field id="template" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Template</label>
+                        <source_model>Mageplaza\Faqs\Model\Config\Source\System\EmailCustomerTemplate</source_model>
+                    </field>
+                </group>
+                <group id="admin" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email to Admin</label>
+                    <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Send an email to admins when a question is created</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="send_to" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Send to</label>
+                        <validate>validate-email</validate>
+                    </field>
+                    <field id="template" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Template</label>
+                        <source_model>Mageplaza\Faqs\Model\Config\Source\System\EmailAdminTemplate</source_model>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

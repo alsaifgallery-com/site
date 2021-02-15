@@ -1,0 +1,95 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Xcoupon
+ */
+?>
+<script>
+    require([
+        'jquery',
+        "uiRegistry",
+        'Magento_Ui/js/modal/alert',
+        'prototype'
+    ], function(jQuery, registry, alert) {
+
+        function amastyXcouponGenerate(ruleId, generateUrl, grid) {
+            var idPrefix = 'amasty_';
+            $(idPrefix + 'generate_fieldset').removeClassName('ignore-validate');
+            var validationResult = $(idPrefix + 'generate_fieldset').select('input',
+                'select', 'textarea').collect( function(elm) {
+                    return jQuery.validator.validateElement(elm);
+                }).all();
+            $(idPrefix + 'generate_fieldset').addClassName('ignore-validate');
+
+            if (!validationResult) {
+                return;
+            }
+
+
+            var elements = $(idPrefix + 'generate_fieldset').select('input', 'select', 'textarea');
+
+            var params = Form.serializeElements(elements, true);
+
+            params.rule_id = ruleId;
+
+            var couponCodesGrid = eval(grid);
+            new Ajax.Request(generateUrl, {
+                parameters :params,
+                method :'post',
+                onComplete : function (transport, param){
+                    var response = false;
+                    if (transport && transport.responseText) {
+                        try {
+                            response = JSON.parse(transport.responseText);
+                        } catch (e) {
+                            console.warn('An error occured while parsing response');
+                        }
+                    }
+
+                    if (response && response.messages) {
+                        alert({
+                            content: response.messages
+                        });
+
+                        if (couponCodesGrid) {
+                            couponCodesGrid.reload();
+                        }
+                    }
+                    if (response && response.error) {
+                        alert({
+                            content: response.error
+                        });
+                    }
+                }
+            });
+        }
+
+
+        jQuery("body").on("click", "#amasty_generate_fieldset legend", function(){
+            var fieldset = jQuery(this).closest('fieldset');
+
+            if (fieldset.hasClass('amasty-expanded')) {
+                fieldset.removeClass('amasty-expanded');
+            } else {
+                fieldset.addClass('amasty-expanded');
+            }
+            fieldset.find('.field').toggle(500);
+        });
+
+        jQuery("body").on("click", "#coupons_information_fieldset legend", function(){
+            var fieldset = jQuery(this).closest('fieldset');
+
+            if (fieldset.hasClass('amasty-expanded')) {
+                fieldset.removeClass('amasty-expanded');
+            } else {
+                fieldset.addClass('amasty-expanded');
+            }
+            fieldset.find('.field').toggle(500);
+        });
+
+
+
+        window.amastyXcouponGenerate = amastyXcouponGenerate;
+    });
+</script>

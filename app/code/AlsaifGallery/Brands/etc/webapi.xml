@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="GET" url="/V1/alsaifgallery/brands/products/:optionId">
+		<service class="AlsaifGallery\Brands\Api\BrandsManagementInterface" method="geProductsBrand"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+        <route method="GET" url="/V1/alsaifgallery/brands/brands">
+		<service class="AlsaifGallery\Brands\Api\BrandsManagementInterface" method="getBrandsList"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+</routes>
