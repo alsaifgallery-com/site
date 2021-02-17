@@ -359,7 +359,6 @@ return [
         'Tabby_Checkout' => 0,
         'Tamara_Checkout' => 0,
         'Temando_Shipping' => 0,
-        'Unirgy_RapidFlowSales' => 0,
         'Unirgy_SimpleUp' => 0,
         'Unirgy_SimpleLicense' => 0,
         'Vertex_Tax' => 1,
