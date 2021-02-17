@@ -360,7 +360,6 @@ return [
         'Tamara_Checkout' => 0,
         'Temando_Shipping' => 0,
         'Unirgy_RapidFlow' => 0,
-        'Unirgy_RapidFlowPro' => 0,
         'Unirgy_RapidFlowSales' => 0,
         'Unirgy_SimpleUp' => 0,
         'Unirgy_SimpleLicense' => 0,
