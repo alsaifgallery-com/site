@@ -2,6 +2,7 @@
 
 ## How to deploy the static content 
 ```              
+bin/magento maintenance:enable
 bin/magento cache:clean
 rm -rf pub/static/*
 bin/magento setup:static-content:deploy \
@@ -13,4 +14,5 @@ bin/magento setup:static-content:deploy \
 	--theme Mgs/supro \
 	-f en_US ar_SA
 bin/magento cache:clean
+bin/magento maintenance:disable
 ```
